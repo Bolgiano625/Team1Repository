@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@android:id/tabhost">
+    <!-- Custom textView -->
+    <TextView
+        android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/customText"
+	    android:textSize="10dp"></TextView>
+    <!-- Layout that holds tab widget. -->
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical">
+	    <!-- Tab within tabLayout. -->
+		<TabWidget
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:id="@android:id/tabs"/>
+		<!-- Values that are stored in each tab. -->
+		<FrameLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:id="@android:id/tabcontent"/>
+	</LinearLayout>
+</TabHost>
+
+
+

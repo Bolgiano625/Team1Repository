@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <!-- Start time/date: 5:15pm, 7/2/13 -->
+	<!-- Finish time/date: 5:50pm, 7/2/13-->
+	<!-- TextView for index -->
+	<TextView
+	    android:id="@+id/indexColumn"
+	    android:layout_width="20dp"
+    	android:layout_height="30dp"
+    	android:background="#FFFFFF"
+    	android:textSize="8sp"/>
+	<!-- TextField for component columun -->
+	<EditText
+		android:id="@+id/componentColumn"
+    	android:layout_width="45dp"
+    	android:layout_height="30dp"
+    	android:layout_marginLeft="0dp"
+    	android:background="#FFFFFF"
+    	android:textSize="8sp"
+    	android:inputType="text">
+	</EditText>
+	<!-- TextView for assemply column -->
+	<TextView
+	    android:id="@+id/assemblyColumn"
+	    android:paddingLeft="65dp"
+	    android:layout_width="45dp"
+    	android:layout_height="30dp"
+    	android:background="#FFFFFF"
+    	android:textSize="8sp"/>
+	<!-- TextField for gross area column -->
+	<EditText
+	    android:id="@+id/grossAreaColumn"
+    	android:layout_width="45dp"
+    	android:layout_marginLeft="0dp"
+    	android:layout_height="30dp"
+    	android:textSize="8sp"
+    	android:background="#FFFFFF"
+    	android:hint="@string/zeroFeetSquared"
+    	android:inputType="text">
+	</EditText>
+	<!-- TextField for cavity insulation R-value column -->
+	<EditText
+	    android:id="@+id/cavityIRValueColumn"
+    	android:layout_width="45dp"
+    	android:layout_marginLeft="0dp"
+    	android:layout_height="30dp"
+    	android:textSize="8sp"
+    	android:background="#FFFFFF"
+    	android:hint="@string/zero"
+    	android:inputType="text">
+	</EditText>
+	<!-- TextField for continuous insulation R-value column -->
+	<EditText
+	    android:id="@+id/continuousIRValueColumn"
+    	android:layout_width="45dp"
+    	android:layout_marginLeft="0dp"
+    	android:layout_height="30dp"
+    	android:textSize="8sp"
+    	android:background="#FFFFFF"
+    	android:hint="@string/zero"
+    	android:inputType="text">
+	</EditText>
+	<!-- TextView for u-factor column -->
+	<TextView
+	    android:id="@+id/uFactorColumn"
+	    android:paddingLeft="245dp"
+	    android:layout_width="45dp"
+	    android:layout_height="30dp"
+	    android:background="#FFFFFF"
+	    android:textSize="8sp"/>
+	<!-- TextView for shgc column -->
+	<TextView
+	    android:id="@+id/sHGCColumn"
+	    android:paddingLeft="290dp"
+	    android:layout_width="45dp"
+	    android:textSize="8sp"
+	    android:background="#FFFFFF"
+    	android:layout_height="30dp"/>
+</TableRow>

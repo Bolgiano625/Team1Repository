@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#00cccc">
+    <!-- Text displaying Row:. -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+       	android:paddingLeft="5dp"
+        android:textSize="16sp"
+        android:text="@string/row"
+        android:id="@+id/rowText"/>
+    <!-- Text displaying Add:. -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="55dp"
+       	android:paddingLeft="5dp"
+        android:textSize="16sp"
+        android:text="@string/add"
+        android:id="@+id/addText"/>
+    <!-- Edit Button -->	    
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:background="#d9e7f5"
+        android:text="@string/edit"
+        android:textSize="12sp"
+        android:id="@+id/editButton"/>
+    <!-- Duplicate Button -->	    
+    <Button
+        android:layout_width="55dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:background="#d9e7f5"
+        android:text="@string/duplicate"
+        android:textSize="12sp"
+        android:id="@+id/duplicateButton"/>
+    <!-- Move Up Button -->	    
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="140dp"
+        android:background="#d9e7f5"
+        android:text="@string/moveUp"
+        android:textSize="12sp"
+        android:id="@+id/moveUpButton"/>
+    <!-- Move Down Button -->	    
+    <Button
+        android:layout_width="65dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="195dp"
+        android:background="#d9e7f5"
+        android:text="@string/moveDown"
+        android:textSize="12sp"
+        android:id="@+id/moveDownButton"/>
+    <!-- Delete Button -->	    
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="265dp"
+        android:background="#d9e7f5"
+        android:text="@string/delete"
+        android:textSize="12sp"
+        android:id="@+id/deleteButton"/>
+	<!-- Ceiling Button -->	    
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="45dp"
+        android:background="#d9e7f5"
+        android:text="@string/ceiling"
+        android:textSize="12sp"
+        android:id="@+id/ceilingButton"/>
+    <!-- Skylight Button -->	    
+    <Button
+        android:layout_width="43dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="90dp"
+        android:background="#d9e7f5"
+        android:text="@string/skylight"
+        android:textSize="12sp"
+        android:id="@+id/skylightButton"/>
+    <!-- Wall Button -->	    
+    <Button
+        android:layout_width="24dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="138dp"
+        android:background="#d9e7f5"
+        android:text="@string/wall"
+        android:textSize="12sp"
+        android:id="@+id/wallButton"/>
+    <!-- Window Button -->	    
+    <Button
+        android:layout_width="43dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="166dp"
+        android:background="#d9e7f5"
+        android:text="@string/window"
+        android:textSize="12sp"
+        android:id="@+id/windowButton"/>
+    <!-- Door Button -->	    
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="214dp"
+        android:background="#d9e7f5"
+        android:text="@string/door"
+        android:textSize="12sp"
+        android:id="@+id/doorButton"/>
+    <!-- Basement Button -->	    
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="250dp"
+        android:background="#d9e7f5"
+        android:text="@string/basement"
+        android:textSize="12sp"
+        android:id="@+id/basementButton"/>
+    <!-- Floor Button -->	    
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="115dp"
+        android:background="#d9e7f5"
+        android:text="@string/floor"
+        android:textSize="12sp"
+        android:id="@+id/floorButton"/>
+    <!-- Crawl Button -->	    
+    <Button
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="155dp"
+        android:background="#d9e7f5"
+        android:text="@string/crawl"
+        android:textSize="12sp"
+        android:id="@+id/crawlButton"/>
+    <!-- Button used has index column header -->	    
+    <Button
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:background="#d9e7f5"
+        android:textSize="8sp"
+        android:id="@+id/indexHeader"/>
+    <!-- Button used has component column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="20dp"
+        android:background="#d9e7f5"
+        android:text="@string/component"
+        android:textSize="8sp"
+        android:id="@+id/componentHeader"/>
+    <!-- Button used has assembly column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="65dp"
+        android:background="#d9e7f5"
+        android:text="@string/assembly"
+        android:textSize="8sp"
+        android:id="@+id/assemblyHeader"/>
+    <!-- Button used has gross area column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="110dp"
+        android:background="#d9e7f5"
+        android:text="@string/grossArea"
+        android:textSize="8sp"
+        android:id="@+id/grossAreaHeader"/>
+    <!-- Button used has cavity insulation r-value column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="155dp"
+        android:background="#d9e7f5"
+        android:text="@string/cavityIRValue"
+        android:textSize="8sp"
+        android:id="@+id/cavityIRValueHeader"/>
+    <!-- Button used has continuous insulation r-value column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="200dp"
+        android:background="#d9e7f5"
+        android:text="@string/continuousIRValue"
+        android:textSize="8sp"
+        android:id="@+id/continuousIRValueHeader"/>
+    <!-- Button used has u-factor column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="245dp"
+        android:background="#d9e7f5"
+        android:text="@string/uFactor"
+        android:textSize="8sp"
+        android:id="@+id/uFactorHeader"/>
+    <!-- Button used has shgc column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="290dp"
+        android:background="#d9e7f5"
+        android:text="@string/sHGC"
+        android:textSize="8sp"
+        android:id="@+id/sHGCHeader"/>
+    <!-- Vertical scrollable layout to hold parameters for a project -->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="165dp"
+        android:scrollbars="vertical"
+        android:background="#FFFFFF"
+        android:id="@+id/verticalScrollView">
+        <!-- Horizontal scrollable layout to help will limited space -->
+        <HorizontalScrollView
+            android:layout_width="500dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/horizontalScrollView">
+            <TableLayout 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:id="@+id/tableHost"
+                android:stretchColumns="*">
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+</RelativeLayout>

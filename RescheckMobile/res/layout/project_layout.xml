@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#00cccc">
+    <!-- TextField that stores the title of the project. -->
+	<EditText
+	    android:layout_width="160dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="60dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:text="@string/tempTitle"
+	    android:id="@+id/titleOfProject">
+	</EditText>
+	<!-- Button that saves the project. -->
+	<Button 
+	    android:id="@+id/saveProjectButton"
+	    android:layout_marginTop="50dp"
+	    android:layout_marginLeft="195dp"
+	    android:background="#d9e7f5"
+	    android:layout_width="wrap_content"
+	    android:layout_height="30dp"
+	    android:textSize="10sp"
+	    android:text="@string/saveProject"/>
+	<!-- Scrollable layout so that the user can easily access project parameters. -->
+	<ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="25dp"
+        android:scrollbars="vertical"
+        android:id="@+id/verticalScrollView">
+    	<!-- Layout to house project parameters. -->    
+    	<RelativeLayout 
+        	android:layout_width="match_parent"
+    		android:layout_height="match_parent"
+    		android:id="@+id/parameterLayout">
+			<!-- Text that store the text Code/Location -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="20dp"
+			    android:textSize="12sp"
+			    android:id="@+id/codeLocation"
+			    android:text="@string/codeLocation"/>
+			<!-- Text that store the text Code -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="45dp"
+			    android:paddingLeft="5dp"
+			    android:textSize="10sp"
+			    android:id="@+id/code"
+			    android:text="@string/code"/>
+			<!-- Text that store the text State -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="85dp"
+			    android:paddingLeft="5dp"
+			    android:textSize="10sp"
+			    android:id="@+id/state"
+			    android:text="@string/state"/>
+			<!-- Text that store the text City -->
+			<TextView 
+	 		   android:layout_width="wrap_content"
+	 		   android:layout_height="wrap_content"
+	 		   android:paddingTop="125dp"
+	 		   android:paddingLeft="25dp"
+	 		   android:textSize="10sp"
+	 		   android:id="@+id/city"
+	 		   android:text="@string/city"/>
+			<!-- Text that store the text County -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="165dp"
+			    android:paddingLeft="25dp"
+			    android:textSize="10sp"
+		    	android:id="@+id/county"
+	   		 	android:text="@string/county"/>
+			<!-- Text that store the text Project Type -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="190dp"
+			    android:textSize="12sp"
+			    android:id="@+id/projectType"
+			    android:text="@string/projectType"/>
+			<!-- Text that store the text New Construction -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="220dp"
+			    android:paddingLeft="25dp"
+			    android:textSize="10sp"
+			    android:id="@+id/newConstruction"
+			    android:text="@string/newConstruction"/>
+			<!-- Text that store the text Addition -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="250dp"
+	    		android:paddingLeft="25dp"
+	    		android:textSize="10sp"
+	    		android:id="@+id/addition"
+	    		android:text="@string/addition"/>
+			<!-- Text that store the text Alteration -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="290dp"
+			    android:paddingLeft="25dp"
+			    android:textSize="10sp"
+			    android:id="@+id/alteration"
+			    android:text="@string/alteration"/>
+			<!-- Text that store the text Compliance Method -->
+			<TextView 
+			    android:layout_width="wrap_content"
+		   		android:layout_height="wrap_content"
+		   		android:paddingTop="320dp"
+		    	android:textSize="12sp"
+		    	android:id="@+id/complianceMethod"
+		    	android:text="@string/complianceMethod"/>
+			<!-- Text that store the text UA Trade-OFF -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="350dp"
+			    android:paddingLeft="25dp"
+			    android:textSize="10sp"
+			    android:id="@+id/uATradeOff"
+			    android:text="@string/uATradeOff"/>
+			<!-- Text that store the text Performance Alternative -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+		   		android:paddingTop="380dp"
+		    	android:paddingLeft="25dp"
+		    	android:textSize="10sp"
+		    	android:id="@+id/performanceAlternative"
+		    	android:text="@string/performanceAlternative"/>
+			<!-- Text that store the text Building Characteristics -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="400dp"
+			    android:textSize="12sp"
+			    android:id="@+id/buildingCharacteristics"
+			    android:text="@string/buildingCharacteristics"/>
+			<!-- Text that store the text 1 - and 2 - Family -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="430dp"
+			    android:paddingLeft="25dp"
+			    android:textSize="10sp"
+			    android:id="@+id/oneAndTwoFamily"
+			    android:text="@string/oneAndTwoFamily"/>
+			<!-- Text that store the text Multifamily -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="470dp"
+			    android:paddingLeft="25dp"
+			    android:textSize="10sp"
+	   		 	android:id="@+id/multiFamily"
+	    		android:text="@string/multiFamily"/>
+			<!-- Text that store the text Conditioned Floor Area -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="500dp"
+			    android:textSize="10sp"
+			    android:id="@+id/conditionedFloorArea"
+			    android:text="@string/conditionedFloorArea"/>
+			<!-- Text that store the text ft2 -->
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingTop="500dp"
+			    android:paddingLeft="140dp"
+			    android:textSize="10sp"
+			    android:id="@+id/ft2"
+			    android:text="@string/ft2"/>
+			<!-- TexField fo Conditioned Floor Area -->
+			<EditText
+    			android:id="@+id/conditionedFloorAreaTextField"
+    			android:layout_marginTop="500dp"
+			    android:layout_marginLeft="110dp"
+			    android:textSize="10sp"
+    			android:layout_width="30dp"
+    			android:layout_height="wrap_content"
+    			android:background="#FFFFFF"
+    			android:inputType="text"/>
+			<!-- Spinner for the code choices -->
+			<Spinner
+			   android:id="@+id/codeComboBox"
+	 		   android:layout_marginTop="30dp"
+			   android:layout_marginLeft="50dp"
+	 		   android:textSize="10sp"
+	 		   android:layout_width="100dp"
+	 		   android:layout_height="wrap_content"/>
+			<!-- Spinner for the state choices -->
+			<Spinner
+	    		android:id="@+id/stateComboBox"
+	    		android:layout_marginTop="65dp"
+			    android:layout_marginLeft="50dp"
+	    		android:textSize="10sp"
+	    		android:layout_width="100dp"
+	    		android:layout_height="wrap_content"/>
+			<!-- Spinner for the city choices -->
+			<Spinner
+			    android:id="@+id/cityComboBox"
+			    android:layout_marginTop="105dp"
+			    android:layout_marginLeft="60dp"
+			    android:textSize="10sp"
+			    android:layout_width="100dp"
+			    android:layout_height="wrap_content"/>
+			<!-- Spinner for the county choices -->
+			<Spinner
+			    android:id="@+id/countyComboBox"
+			    android:layout_marginTop="145dp"
+			    android:layout_marginLeft="60dp"
+			    android:textSize="10sp"
+			    android:layout_width="100dp"
+		  	    android:layout_height="wrap_content"/>
+			<!-- RadioButton group for Code/Location -->
+			<RadioGroup 
+			    android:id="@+id/radioGroupCodeLocation"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="110dp">
+			    <!-- RadioButton for city -->
+			    <RadioButton
+			        android:id="@+id/cityRadioButton"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"/>
+			    <!-- RadioButton for county -->
+			    <RadioButton
+			        android:id="@+id/countyRadioButton"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"/>
+			</RadioGroup>
+			<!-- RadioButton group for Project Type -->
+			<RadioGroup 
+			    android:id="@+id/radioGroupProjectType"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="205dp">
+			    <!-- RadioButton for New Construction -->
+			    <RadioButton
+			        android:id="@+id/newConstructionRadioButton"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"/>
+		    	<!-- RadioButton for Addition -->
+		    	<RadioButton
+		    	    android:id="@+id/additionRadioButton"
+		    	    android:layout_width="wrap_content"
+		    	    android:layout_height="wrap_content"/>
+		    	<!-- RadioButton for Alteration -->
+		    	<RadioButton
+		    	    android:id="@+id/alterationRadioButton"
+		    	    android:layout_width="wrap_content"
+		    	    android:layout_height="wrap_content"/>
+			</RadioGroup>
+			<!-- RadioButton group for Compliance Method -->
+			<RadioGroup 
+			    android:id="@+id/radioGroupComplianceMethod"
+			    android:layout_width="wrap_content"
+			    android:layout_height="60dp"
+			    android:layout_marginTop="340dp">
+			    <!-- RadioButton for UA Trade-OFF -->
+			    <RadioButton
+			        android:id="@+id/uATradeOffRadioButton"
+			        android:layout_width="wrap_content"
+	    	    	android:layout_height="wrap_content"/>
+	    		<!-- RadioButton for Performance Alteration -->
+	    		<RadioButton
+	    		    android:id="@+id/performanceAlterationRadioButton"
+	    		    android:layout_width="wrap_content"
+	    		    android:layout_height="wrap_content"/>
+			</RadioGroup>
+			<!-- RadioButton group for Building Characteristics -->
+			<RadioGroup 
+		   		android:id="@+id/radioGroupBuildingCharacteristics"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_marginTop="420dp">
+		    	<!-- RadioButton for 1 - and 2 - Family -->
+		    	<RadioButton
+		    	    android:id="@+id/oneAndTwoFamilyRadioButton"
+		    	    android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"/>
+		    	<!-- RadioButton for Multifamily -->
+		    	<RadioButton
+		    	    android:id="@+id/multiFamilyRadioButton"
+		    	    android:layout_width="wrap_content"
+		    	    android:layout_height="wrap_content"/>
+			</RadioGroup>
+		</RelativeLayout>
+	</ScrollView>
+	<Button 
+	    android:id="@+id/projectDetailsButton"
+	    android:layout_marginTop="90dp"
+	    android:layout_marginLeft="195dp"
+	    android:background="#d9e7f5"
+	    android:layout_width="wrap_content"
+	    android:layout_height="30dp"
+	    android:textSize="10sp"
+	    android:text="@string/projectDetails"/>
+	<EditText
+    	android:id="@+id/noteTextArea"
+    	android:paddingBottom="270dp"
+    	android:layout_marginTop="140dp"
+	    android:layout_marginLeft="175dp"
+	    android:textSize="10sp"
+    	android:layout_width="100dp"
+    	android:layout_height="300dp"
+    	android:background="#FFFFFF"
+    	android:hint="@string/note"
+    	android:inputType="text"/>
+</RelativeLayout>
