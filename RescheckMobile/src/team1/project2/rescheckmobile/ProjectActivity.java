@@ -16,7 +16,7 @@ public class ProjectActivity extends Activity{
 	*----------------------------------
 	*Christopher T. Bolgiano
 	*Start time/date: 3:30pm, 7/5/2013
-	*
+	*End time/date: 5:18pm, 7/5/13
 	*----------------------------------
 	**/
 	//TextField for the title of the project.
