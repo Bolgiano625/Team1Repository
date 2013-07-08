@@ -19,8 +19,12 @@ public class ProjectActivity extends Activity{
 	*End time/date: 5:18pm, 7/5/13
 	*----------------------------------
 	**/
+	//Instance of this type.
+	public static ProjectActivity projectTab;
+	//Instance of the Envelope tab.
+	private static EnvelopeActivity envelopeTab;
 	//TextField for the title of the project.
-	private EditText title_EditText;
+	private static EditText title_EditText;
 	//Button that will save the project.
 	private Button save_Button;
 	//TextView that displays Code/Location.
@@ -80,7 +84,7 @@ public class ProjectActivity extends Activity{
 	//RadioButton for UA Trade-OFF.
 	private RadioButton uATradeOff_RadioButton;
 	//RadioButton for performance alteration.
-	private RadioButton performanceAlteration_RadioButton;
+	private RadioButton performanceAlternative_RadioButton;
 	//RadioButton for 1 - and 2 - Family.
 	private RadioButton oneAndTwoFamily_RadioButton;
 	//RadioButton for Multifamily.
@@ -100,6 +104,8 @@ public class ProjectActivity extends Activity{
 		initializeTextViews();
 		//Stores all Spinners.
 		initializeSpinners();
+		//Stores all RadioButtons.
+		initializeRadioButtons();
 		//Stores all Buttons.
 		initializeButtons();
 	}
@@ -177,17 +183,100 @@ public class ProjectActivity extends Activity{
 	}
 	
 	/**
+	 * initializeRadioButtons
+	 * 
+	 * Initializes all radio buttons.
+	 */
+	private void initializeRadioButtons(){
+		//City radio button.
+		city_RadioButton = new RadioButton(this);
+		city_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}
+		});
+		//County radio button.
+		county_RadioButton = new RadioButton(this);
+		county_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}		
+		});
+		//New construction radio button.
+		newConstruction_RadioButton = new RadioButton(this);
+		newConstruction_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}				
+		});
+		//Addition radio button.
+		addition_RadioButton = new RadioButton(this);
+		addition_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}					
+		});
+		//Alteration radio button.
+		alteration_RadioButton = new RadioButton(this);
+		alteration_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}					
+		});
+		//UA Trade-Off radio button.
+		uATradeOff_RadioButton = new RadioButton(this);
+		uATradeOff_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}					
+		});
+		//Performance alternative radio button.
+		performanceAlternative_RadioButton = new RadioButton(this);
+		performanceAlternative_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}					
+		});
+		//1 and 2 family radio button.
+		oneAndTwoFamily_RadioButton = new RadioButton(this);
+		oneAndTwoFamily_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}					
+		});
+		//Multifamily radio button.
+		multiFamily_RadioButton = new RadioButton(this);
+		multiFamily_RadioButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				;				
+			}					
+		});
+		
+	}
+	
+	/**
 	 * initializeButtons
 	 * 
-	 * Initializes all button.
+	 * Initializes all buttons.
 	 */
 	private void initializeButtons(){
 		//Save Project.
 		save_Button = (Button)findViewById(R.id.saveProjectButton);
+		//System.out.println("HEY I AM RIGHT HERE!");
 		save_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				//What happens when you click save?
+				projectTab = getProjectTab();
+				SaveProject saveActivity = new SaveProject();
 			}
 		});
 		//Project Details.
@@ -199,5 +288,149 @@ public class ProjectActivity extends Activity{
 			}
 		});
 		
+	}
+	
+	/**
+	 * getTitle
+	 * 
+	 * @return Title of project.
+	 */
+	public String getProjectTitle(){
+		return title_EditText.getText().toString();
+	}
+	
+	/**
+	*getCodeSpinner
+	*
+	*@return code_Spinner Spinner for code selection.
+	**/
+	public Spinner getCodeSpinner(){
+		return code_Spinner;
+	}
+	
+	/**
+	*getStateSpinner
+	*
+	*@return code_Spinner Spinner for state selection.
+	**/
+	public Spinner getStateSpinner(){
+		return state_Spinner;
+	}
+	
+	/**
+	*getCitySpinner
+	*
+	*@return city_Spinner Spinner for city selection.
+	**/
+	public Spinner getCitySpinner(){
+		return city_Spinner;
+	}
+	
+	/**
+	*getCountySpinner
+	*
+	*@return county_Spinner Spinner for county selection.
+	**/
+	public Spinner getCountySpinner(){
+		return county_Spinner;
+	}
+	
+	/**
+	 * getCityRadioButton
+	 * 
+	 * @return city_RadioButton Radio button for city selection.
+	 */
+	public RadioButton getCityRadioButton(){
+		return city_RadioButton;
+	}
+	
+	/**
+	 * getCountyRadioButton
+	 * 
+	 * @return county_RadioButton Radio button for county selection.
+	 */
+	public RadioButton getCountyRadioButton(){
+		return county_RadioButton;
+	}
+	
+	/**
+	 * getNewConstructionRadioButton
+	 * 
+	 * @return newConstruction_RadioButton Radio button for New Construction selection.
+	 */
+	public RadioButton getNewConstructionRadioButton(){
+		return newConstruction_RadioButton;
+	}
+	
+	/**
+	 * getAdditionRadioButton
+	 * 
+	 * @return addition_RadioButton Radio button for addition selection.
+	 */
+	public RadioButton getAdditionRadioButton(){
+		return addition_RadioButton;
+	}
+	
+	/**
+	 * getAlterationRadioButton
+	 * 
+	 * @return alteration_RadioButton Radio button for alteration selection.
+	 */
+	public RadioButton getAlterationRadioButton(){
+		return county_RadioButton;
+	}
+	
+	/**
+	 * getUATradeOffRadioButton
+	 * 
+	 * @return uATradeOff_RadioButton Radio button for UA Trade-OFF selection.
+	 */
+	public RadioButton getUATradeOffRadioButton(){
+		return uATradeOff_RadioButton;
+	}
+	
+	/**
+	 * getPerformanceAlternativeRadioButton
+	 * 
+	 * @return performanceAlternative_RadioButton Radio button for performance alternative selection.
+	 */
+	public RadioButton getPerformanceAlternativeRadioButton(){
+		return performanceAlternative_RadioButton;
+	}
+	
+	/**
+	 * getOneAndTwoFamilyRadioButton
+	 * 
+	 * @return oneAndTwoFamily_RadioButton Radio button for 1 And 2 Family selection.
+	 */
+	public RadioButton getOneAndTwoFamilyRadioButton(){
+		return oneAndTwoFamily_RadioButton;
+	}
+	
+	/**
+	 * getMultifamilyRadioButton
+	 * 
+	 * @return multiFamily_RadioButton Radio button for Multifamily selection.
+	 */
+	public RadioButton getMultifamilyRadioButton(){
+		return multiFamily_RadioButton;
+	}
+	
+	/**
+	 * getNotes
+	 * 
+	 * @return Notes from project.
+	 */
+	public String getProjectNotes(){
+		return notes_EditText.getText().toString();
+	}
+	
+	/**
+	 * getProjectTab
+	 * 
+	 * @return this activity.
+	 */
+	public ProjectActivity getProjectTab(){
+		return this;
 	}
 }

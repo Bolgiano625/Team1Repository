@@ -63,4 +63,7 @@
 The UA Alternative does not consider mechanical systems so mechanical inputs are not available. Under the Performance Alternative, mechanical systems can be specified and may impact the results, however no trade-off credits for high efficiency mechanical equipment are allowed.
 See the help for more information.</string>
 	<string name="mechanicalTitle">IECC 2009 - UA Trade-Off Mechanical Requirements</string>
+	<!-- Strings for load screen -->
+	<string name="load">Load</string>
+	<string name="loadTitle">Load Project</string>
 </resources>

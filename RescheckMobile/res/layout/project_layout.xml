@@ -18,16 +18,6 @@
 	    android:text="@string/tempTitle"
 	    android:id="@+id/titleOfProject">
 	</EditText>
-	<!-- Button that saves the project. -->
-	<Button 
-	    android:id="@+id/saveProjectButton"
-	    android:layout_marginTop="50dp"
-	    android:layout_marginLeft="195dp"
-	    android:background="#d9e7f5"
-	    android:layout_width="wrap_content"
-	    android:layout_height="30dp"
-	    android:textSize="10sp"
-	    android:text="@string/saveProject"/>
 	<!-- Scrollable layout so that the user can easily access project parameters. -->
 	<ScrollView
         android:layout_width="fill_parent"
@@ -305,6 +295,16 @@
 			</RadioGroup>
 		</RelativeLayout>
 	</ScrollView>
+	<!-- Button that saves the project. -->
+	<Button 
+   		android:id="@+id/saveProjectButton"
+	 	android:layout_marginTop="50dp"
+	    android:layout_marginLeft="195dp"
+	    android:background="#d9e7f5"
+	   	android:layout_width="wrap_content"
+	   	android:layout_height="30dp"
+	    android:textSize="10sp"
+	    android:text="@string/saveProject"/>
 	<Button 
 	    android:id="@+id/projectDetailsButton"
 	    android:layout_marginTop="90dp"

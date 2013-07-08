@@ -3,6 +3,7 @@ import java.util.LinkedList;
 
 import team1.project2.rescheckmobile.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,7 +20,10 @@ import android.widget.Button;
  *
  */
 public class EnvelopeActivity extends Activity{
-	
+	//Boolean if true capture instance of type.
+	public static boolean captureInstaceOfEnvelopeTab = false;
+	//Static instance of this class.
+	public static EnvelopeActivity envelopeTab;
 	//Edit button.
 	private Button edit_Button;
 	//Duplicate button.
@@ -48,11 +52,12 @@ public class EnvelopeActivity extends Activity{
 	private Button crawl_Button;
 	
 	//Linked list of rows.
-	private LinkedList<EnvelopeRow> rows_LinkedList = new LinkedList<EnvelopeRow>();
+	public static LinkedList<EnvelopeRow> rows_LinkedList;
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.envelope_layout);
+		rows_LinkedList = new LinkedList<EnvelopeRow>();
 		instantiateRowButtons();
 		instantiateAddButtons();
 	}
@@ -68,7 +73,7 @@ public class EnvelopeActivity extends Activity{
 		edit_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-			
+				
 			}
 		});
 		//Duplicate button and listener for it.
@@ -76,7 +81,7 @@ public class EnvelopeActivity extends Activity{
 		duplicate_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-			
+				
 			}
 		});
 		//Move up button and listener for it.
@@ -92,7 +97,7 @@ public class EnvelopeActivity extends Activity{
 		moveDown_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-					
+		
 			}
 		});
 		//Delete button and listener for it.
@@ -100,7 +105,7 @@ public class EnvelopeActivity extends Activity{
 		delete_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-					
+			
 			}
 		});
 	}

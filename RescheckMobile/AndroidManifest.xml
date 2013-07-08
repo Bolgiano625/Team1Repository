@@ -3,7 +3,9 @@
     package="team1.project2.rescheckmobile"
     android:versionCode="1"
     android:versionName="1.0" >
-
+	
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
@@ -17,14 +19,12 @@
         <!-- Home activity -->
         <activity android:name="team1.project2.rescheckmobile.HomeActivity"
             android:screenOrientation="portrait"/>
-        
         <!-- Project activity -->
         <activity android:name="team1.project2.rescheckmobile.ProjectActivity"
             android:screenOrientation="portrait"/>
         <!-- Envelope activity -->
         <activity android:name="team1.project2.rescheckmobile.EnvelopeActivity"
-            android:screenOrientation="portrait"/>
-        
+            android:screenOrientation="portrait"/>  
         <!-- Mechanical activity -->
         <activity android:name="team1.project2.rescheckmobile.MechanicalActivity"
             android:screenOrientation="portrait"/>
