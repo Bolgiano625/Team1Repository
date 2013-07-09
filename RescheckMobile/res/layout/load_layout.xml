@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#00cccc">
+    <!-- TextView for Load Files -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+       	android:paddingLeft="70dp"
+        android:textSize="30sp"
+        android:text="@string/loadTitle"/>
+    <!-- Vertical scrollable layout -->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="75dp"
+        android:scrollbars="vertical"
+        android:background="#FFFFFF">
+        <!-- Horizontal scrollable layout to help will limited space -->
+        <HorizontalScrollView
+            android:layout_width="500dp"
+            android:layout_height="fill_parent">
+            <TableLayout 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:id="@+id/loadProjectsHost"
+                android:stretchColumns="*">
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+</RelativeLayout>

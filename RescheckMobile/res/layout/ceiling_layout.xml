@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="#00cccc">
+    <!-- TextView Title of Ceiling Selections -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/createCeiling"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:textSize="30sp"/>
+    <!-- RadioGroup for ceiling selections. -->
+    <RadioGroup 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp">
+		<!-- RadioButton for FlatCeiling or Scissor Truss. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/fCOST"
+	    	android:textSize="12dp"
+	    	android:id="@+id/fCOSTRadioButton"/>        
+    	<!-- RadioButton for Cathedral Ceiling (not attic). -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/cCNA"
+	    	android:textSize="12dp"
+	    	android:id="@+id/cCNARadioButton"/>
+		<!-- RadioButton for Raised or Energy Truss. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/rOET"
+	    	android:textSize="12dp"
+	    	android:id="@+id/rOETRadioButton"/>
+		<!-- RadioButton for Steel Truss -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sTruss"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sTrussRadioButton"/>
+		<!-- RadioButton for Steel Joist/Rafter, 16in. o.c. -Member Size: -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sJR16"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sJR16RadioButton"/>
+		<!-- RadioButton for Steel Joist/Rafter, 24in. o.c. -Member Size: -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sJR24"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sJR24RadioButton"/>
+		<!-- RadioButton for Structural Insulated Panels (SIPs) -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sIP"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sIPRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/other"
+	    	android:textSize="12dp"
+	    	android:id="@+id/otherRadioButton"/>
+    </RadioGroup>
+    <!-- Spinner for 16in -->
+    <Spinner
+        android:layout_width="100dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="200dp"
+        android:layout_marginLeft="250dp"
+        android:id="@+id/sJR16Spinner">
+    </Spinner>
+    <!-- Spinner for 24in -->
+    <Spinner
+        android:layout_width="70dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="230dp"
+        android:layout_marginLeft="250dp"
+        android:id="@+id/sJR24Spinner">
+    </Spinner>
+</RelativeLayout>

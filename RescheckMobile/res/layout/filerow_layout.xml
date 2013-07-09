@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <!-- Start time/date: 5:00pm, 7/7/13 -->
+	<!-- Finish time/date: 5:10pm, 7/7/13-->
+	<!-- TextView for file name -->
+	<TextView
+	    android:id="@+id/fileName"
+	    android:layout_width="wrap_content"
+    	android:layout_height="20dp"
+    	android:layout_marginTop="5dp"
+    	android:layout_marginLeft="5dp"
+    	android:background="#FFFFFF"
+    	android:textSize="12sp"/>
+	<!-- Button to load file -->
+	<Button
+	    android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#d9e7f5"
+        android:text="@string/load"
+        android:textSize="12sp"/>
+	<!-- Button to delete file -->
+	<Button
+	    android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:background="#d9e7f5"
+        android:text="@string/delete"
+        android:textSize="12sp"/>
+</TableRow>
