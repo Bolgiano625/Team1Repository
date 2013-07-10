@@ -76,6 +76,6 @@ See the help for more information.</string>
 	<string name="sIP">Structural Insulated Panels(SIPs) </string>
 	<string name="other">Other</string>
 	<string name="createCeiling">Create Ceiling</string>
-	<string name="or">or</string>
 	<string name="cancel">Cancel</string>
+	
 </resources>
