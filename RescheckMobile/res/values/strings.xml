@@ -77,5 +77,15 @@ See the help for more information.</string>
 	<string name="other">Other</string>
 	<string name="createCeiling">Create Ceiling</string>
 	<string name="cancel">Cancel</string>
-	
+	<!-- Strings for crawl screen. -->
+	<string name="sCOM">Solid Concrete or Masonry</string>
+	<string name="mBWEC">Masonry Block w/ Empty Cells</string>
+	<string name="mBWII">Masonry Block w/ Integral Insulation</string>
+	<string name="wF">Wood Frame</string>
+	<string name="iCF">Insulated Concrete Forms</string>
+	<string name="informationCrawl">The crawl space wall option applies only to walls of unventilated crawl spaces. Enter the specified dimensions in feet (not inches)</string>
+	<string name="wallHeight">Wall Height(ft):</string>
+	<string name="dBG">Depth Below Grade(ft):</string>
+	<string name="dOI">Depth of Insulation(ft):</string>
+	<string name="dBIG">Depth Below Inside Grade(ft):</string>
 </resources>

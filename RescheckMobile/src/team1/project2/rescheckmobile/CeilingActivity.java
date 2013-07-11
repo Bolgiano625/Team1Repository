@@ -40,9 +40,10 @@ public class CeilingActivity extends Activity{
 		setContentView(R.layout.ceiling_layout);
 		//Instantiates all RadioButtons. 
 		initializeRadioButtons();
-		//Instantiatesall Spinners.
+		//Instantiates all Spinners.
 		initializeSpinners();
-		
+		//Instantiates all buttons.
+		initializeButtons();
 	}
 	
 	/**

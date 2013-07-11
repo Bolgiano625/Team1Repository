@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc" >
+    <!-- Image displaying crawl picture. -->
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="170dp"
+        android:paddingRight="100dp"
+        android:src="@raw/crawl"
+        android:id="@+id/crawl"/>
+	<!-- TextView Wall Height(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wallHeight"
+        android:layout_marginTop="225dp"
+        android:paddingLeft="200dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Height(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="240dp"
+	    android:layout_marginLeft="200dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/wHCrawl"/>
+    <!-- TextView Depth Below Grade(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dBG"
+        android:layout_marginTop="260dp"
+        android:paddingLeft="200dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Depth Below Grade(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="290dp"
+	    android:layout_marginLeft="200dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/dBGCrawl"/>
+    <!-- TextView Depth of Insulation(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dOI"
+        android:layout_marginTop="315dp"
+        android:paddingLeft="200dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Depth of Insulation(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="345dp"
+	    android:layout_marginLeft="200dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/dOICrawl"/>
+    <!-- TextView Depth Below Inside Grade(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dBIG"
+        android:layout_marginTop="375dp"
+        android:paddingLeft="200dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Below Inside Grade(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="405dp"
+	    android:layout_marginLeft="200dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/dBIGCrawl"/>
+    <!-- TextView information of crawl selections -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/informationCrawl"
+        android:layout_marginTop="180dp"
+        android:paddingLeft="0dp"
+        android:textSize="12sp"/>
+	<!-- RadioGroup for crawl selections. -->
+    <RadioGroup 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+		<!-- RadioButton for Solid Concrete or Masonry. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sCOM"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sCOMRadioButton"/>        
+    	<!-- RadioButton for Masonry Block w/ Empty Cells. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/mBWEC"
+	    	android:textSize="12dp"
+	    	android:id="@+id/mBWECRadioButton"/>
+		<!-- RadioButton for Masonry Block w/ Integral Insulation. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/mBWII"
+	    	android:textSize="12dp"
+	    	android:id="@+id/mBWIIRadioButton"/>
+		<!-- RadioButton for Wood Frame -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/wF"
+	    	android:textSize="12dp"
+	    	android:id="@+id/wFRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/other"
+	    	android:textSize="12dp"
+	    	android:id="@+id/iCFRadioButton"/>
+	</RadioGroup>    
+
+</RelativeLayout>
