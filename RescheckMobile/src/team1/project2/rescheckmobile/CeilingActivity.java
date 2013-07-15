@@ -3,6 +3,7 @@ package team1.project2.rescheckmobile;
 import java.util.LinkedList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +36,8 @@ public class CeilingActivity extends Activity{
 	private Button createCeiling_Button;
 	//Cancel Button.
 	private Button cancel_Button;
+	//Int value for radio button chosen.
+	private int radioButtonPressed = 0;
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ceiling_layout);
@@ -57,6 +60,7 @@ public class CeilingActivity extends Activity{
 		fCOST_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 1;
 				//I work now!!!
 			}
 		});
@@ -65,6 +69,7 @@ public class CeilingActivity extends Activity{
 		cCNA_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 2;
 				//I work now!!!
 			}
 		});
@@ -73,6 +78,7 @@ public class CeilingActivity extends Activity{
 		rOET_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 3;
 				//I work now!!!
 			}
 		});
@@ -81,6 +87,7 @@ public class CeilingActivity extends Activity{
 		sTruss_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 4;
 				//I work now!!!
 			}
 		});
@@ -89,6 +96,7 @@ public class CeilingActivity extends Activity{
 		sJR16_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 5;
 				//I work now!!!
 			}
 		});
@@ -97,6 +105,7 @@ public class CeilingActivity extends Activity{
 		sJR24_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 6;
 				//I work now!!!
 			}
 		});
@@ -105,6 +114,7 @@ public class CeilingActivity extends Activity{
 		sIP_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 7;
 				//I work now!!!
 			}
 		});
@@ -113,6 +123,7 @@ public class CeilingActivity extends Activity{
 		other_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 8;
 				//I work now!!!
 			}
 		});
@@ -141,16 +152,38 @@ public class CeilingActivity extends Activity{
 		createCeiling_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				
+				//Intent to return values from Ceiling window.
+				Intent data = new Intent();
+				switch(radioButtonPressed){
+				case 1:
+					data.putExtra("1","1");
+				case 2:
+					data.putExtra("2","2");
+				case 3:
+					data.putExtra("3","3");
+				case 4:
+					data.putExtra("4","4");
+				case 5:
+					data.putExtra("5","5");
+					data.putExtra("result",sJR16_Spinner.getSelectedItem().toString());
+				case 6:
+					data.putExtra("6","6");
+					data.putExtra("result",sJR24_Spinner.getSelectedItem().toString());
+				case 7:
+					data.putExtra("7","7");
+				case 8:
+					data.putExtra("8","8");
+				}
+				setResult(RESULT_OK, data);
+				finish();
 			}
-				
 		});
 		//Cancel Button. 
 		cancel_Button = (Button)findViewById(R.id.cancelCeilingButton);
 		cancel_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-						
+					finish();	
 			}
 						
 		});

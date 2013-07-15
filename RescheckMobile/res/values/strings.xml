@@ -77,7 +77,16 @@ See the help for more information.</string>
 	<string name="other">Other</string>
 	<string name="createCeiling">Create Ceiling</string>
 	<string name="cancel">Cancel</string>
+	<!-- Array for Ceiling -->
+    <string-array name="ceilingSpinner">
+        <item>2x4</item>
+        <item>2x6</item>
+        <item>2x8</item>
+    	<item>2x10</item>
+    	<item>2x12</item>
+    </string-array>
 	<!-- Strings for crawl screen. -->
+	<string name="createCrawl">Create Crawl</string>
 	<string name="sCOM">Solid Concrete or Masonry</string>
 	<string name="mBWEC">Masonry Block w/ Empty Cells</string>
 	<string name="mBWII">Masonry Block w/ Integral Insulation</string>
@@ -88,4 +97,70 @@ See the help for more information.</string>
 	<string name="dBG">Depth Below Grade(ft):</string>
 	<string name="dOI">Depth of Insulation(ft):</string>
 	<string name="dBIG">Depth Below Inside Grade(ft):</string>
+	<!-- Strings for the floor screen -->
+	<string name="createFloor">Create Floor</string>
+	<string name="AWoodTruss">All-Wood Joist/Truss:</string>
+	<string name="SteelFrame16">Steel Frame, 16" o.c:</string>
+	<string name="SteelFrame32">Steel Frame, 32" o.c:</string>
+	<string name="SIPanels">Structural Insulated Panels:</string>
+	<string name="SOGHeated">Slab-On-Panels (Heated) - Insulation Depth (ft):</string>
+	<string name="SOGUnHeated">Slab-On-Panels (UnHeated) - Insulation Depth (ft):</string>
+	<string name="Other">Other</string>
+	<string name="Cancel">Cancel</string>
+	<!-- Strings for the spinners -->
+	<!-- Array for All wood Joist and Truss -->
+	<string-array name="AWoodTrussArray">
+     	<item>Over Uncondtioned Space</item>
+     	<item>Over Outside Air</item>
+    </string-array>
+    <!-- Array for Steel Frame 16 oc -->
+    <string-array name="Steel16Spinner">
+        <item>2x6, Over Uncondition Space</item>
+        <item>2x8, Over Uncondition Space</item>
+        <item>2x10, Over Uncondition Space</item>
+        <item>2x12, Over Uncondition Space</item>
+        <item>2x6, Over Outside Air</item>
+        <item>2x8, Over Outside Air</item>
+        <item>2x10, Over Outside Air</item>
+        <item>2x12, Over Outside Air</item>
+    </string-array> 
+    <!-- Array for Steel Frame 24 OC -->
+    <string-array name="Steel32Spinner">
+        <item>2x6, Over Uncondition Space</item>
+        <item>2x8, Over Uncondition Space</item>
+        <item>2x10, Over Uncondition Space</item>
+        <item>2x12, Over Uncondition Space</item>
+        <item>2x6, Over Outside Air</item>
+        <item>2x8, Over Outside Air</item>
+        <item>2x10, Over Outside Air</item>
+        <item>2x12, Over Outside Air</item>
+    </string-array>
+    <!-- Array for Structural Insulated Panels -->
+    <string-array name="SIPPanelSpinner">
+        <item>Over Uncondition Space</item>
+        <item>Over Outside Air</item>
+    </string-array>  
+    <!-- Array for Other --> 
+    <string-array name="otherSpinner">
+        <item>Over Uncondition Space</item>
+        <item>Over Outside Air</item>
+    </string-array>
+    <!-- Strings for door screen. -->
+	<string name="sDO">Solid Door (under %50 glazing)</string>
+	<string name="gDO">Glass Door (over %50 glazing)</string>
+	<string name="createDoor">Create Door</string>
+	<!-- Strings for Skylight window -->
+	<string name="mFSkyLight">Metal Frame</string>
+	<string name="mFWTBSkyLight">Metal Frame w/ Thermal Break</string>
+	<string name="wFSkyLight">Wood Frame</string>
+	<string name="vFSkyLight">Vinyl Frame</string>
+	<string name="cSSkyLight">Create Skylight</string>
+	<!-- Array for Skylight -->
+    <string-array name="metalFrameSpinner">
+        <item>Single Pane</item>
+        <item>Double Pane</item>
+        <item>Doubke Pane w/ Low-E</item>
+    	<item>Triple Pane</item>
+    	<item>Triple Pane w/ Low-E</item>
+    </string-array>
 </resources>

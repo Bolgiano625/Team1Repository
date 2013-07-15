@@ -79,6 +79,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="200dp"
         android:layout_marginLeft="250dp"
+        android:entries="@array/ceilingSpinner"
         android:id="@+id/sJR16Spinner">
     </Spinner>
     <!-- Spinner for 24in -->
@@ -87,6 +88,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="230dp"
         android:layout_marginLeft="250dp"
+        android:entries="@array/ceilingSpinner"
         android:id="@+id/sJR24Spinner">
     </Spinner>
     <Button

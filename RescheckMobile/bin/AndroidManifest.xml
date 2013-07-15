@@ -24,9 +24,27 @@
             android:screenOrientation="portrait"/>
         <!-- Envelope activity -->
         <activity android:name="team1.project2.rescheckmobile.EnvelopeActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Envelope row activity -->
+        <activity android:name="team1.project2.rescheckmobile.EnvelopeRow"
             android:screenOrientation="portrait"/>  
         <!-- Mechanical activity -->
         <activity android:name="team1.project2.rescheckmobile.MechanicalActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Ceiling activity -->
+        <activity android:name="team1.project2.rescheckmobile.CeilingActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Skylight activity -->
+        <activity android:name="team1.project2.rescheckmobile.SkylightActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Door activity -->
+        <activity android:name="team1.project2.rescheckmobile.DoorActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Floor activity -->
+        <activity android:name="team1.project2.rescheckmobile.Floor_Layout"
+            android:screenOrientation="portrait"/>
+        <!-- Crawl activity -->
+        <activity android:name="team1.project2.rescheckmobile.CrawlActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="team1.project2.rescheckmobile.MainActivity"

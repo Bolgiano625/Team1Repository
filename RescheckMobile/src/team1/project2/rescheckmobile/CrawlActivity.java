@@ -3,6 +3,7 @@ package team1.project2.rescheckmobile;
 import java.util.LinkedList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +13,10 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 
 public class CrawlActivity extends Activity{
+	//Create Crawl Button.
+	private Button createCrawl_Button;
+	//Cancel Crawl Button.
+	private Button cancel_Button;
 	//Solid Concrete or Masonry RadioButton.
 	private RadioButton sCOM_RadioButton;
 	//Masonry Block w/ Empty Cells RadioButton.
@@ -32,14 +37,18 @@ public class CrawlActivity extends Activity{
 	private EditText dOI_EditText;
 	//Depth Below Inside Grade(ft) text field.
 	private EditText dBIG_EditText;
+	//Int value for radio button chosen.
+	private int radioButtonPressed = 0;
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ceiling_layout);
+		setContentView(R.layout.crawl_layout);
 		//Instantiates all RadioButtons. 
 		initializeRadioButtons();	
 		//Instantiates all TextFields.
 		initializeEditTexts();
+		//Instantiates all Buttons.
+		initializeButtons();
 	}
 	
 	/**
@@ -49,58 +58,56 @@ public class CrawlActivity extends Activity{
 	 */
 	private void initializeRadioButtons(){
 		//Solid Concrete or Masonry RadioButton.
-		sCOM_RadioButton = (RadioButton)findViewById(R.id.fCOSTRadioButton);
+		sCOM_RadioButton = (RadioButton)findViewById(R.id.sCOMRadioButton);
 		sCOM_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 1;
 				//I work now!!!
 			}
 		});
 		//Masonry Block w/ Empty Cells RadioButton.
-		mBWEC_RadioButton = (RadioButton)findViewById(R.id.cCNARadioButton);
+		mBWEC_RadioButton = (RadioButton)findViewById(R.id.mBWECRadioButton);
 		mBWEC_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 2;
 				//I work now!!!
 			}
 		});
 		//Masonry Block w/ Integral Insulation RadioButton.
-		mBWII_RadioButton = (RadioButton)findViewById(R.id.rOETRadioButton);
+		mBWII_RadioButton = (RadioButton)findViewById(R.id.mBWIIRadioButton);
 		mBWII_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 3;
 				//I work now!!!
 			}
 		});
 		//Wood Frame RadioButton.
-		wF_RadioButton = (RadioButton)findViewById(R.id.sTrussRadioButton);
+		wF_RadioButton = (RadioButton)findViewById(R.id.wFRadioButton);
 		wF_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 4;
 				//I work now!!!
 			}
 		});
 		//Insulated Concrete Forms RadioButton.
-		iCF_RadioButton = (RadioButton)findViewById(R.id.sJR16RadioButton);
+		iCF_RadioButton = (RadioButton)findViewById(R.id.iCFRadioButton);
 		iCF_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				radioButtonPressed = 5;
 				//I work now!!!
 			}
 		});
 		//Other RadioButton.
-		other_RadioButton = (RadioButton)findViewById(R.id.sJR24RadioButton);
+		other_RadioButton = (RadioButton)findViewById(R.id.otherCrawlRadioButton);
 		other_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				//I work now!!!
-			}
-		});
-		//Other RadioButton.
-		other_RadioButton = (RadioButton)findViewById(R.id.otherRadioButton);
-		other_RadioButton.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
+				radioButtonPressed = 6;
 				//I work now!!!
 			}
 		});
@@ -120,5 +127,51 @@ public class CrawlActivity extends Activity{
 		dOI_EditText = (EditText)findViewById(R.id.dOICrawl);
 		//Notes text field.
 		dBIG_EditText = (EditText)findViewById(R.id.dBIGCrawl);
+	}
+	
+	/**
+	 * initializeButtons
+	 * 
+	 * Initializes all buttons.
+	 */
+	private void initializeButtons(){
+		//Create Ceiling Button. 
+		createCrawl_Button = (Button)findViewById(R.id.createCrawlButton);
+		createCrawl_Button.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				//Intent to return values from Ceiling window.
+				Intent data = new Intent();
+				switch(radioButtonPressed){
+				case 1:
+					data.putExtra("result","");
+				case 2:
+					data.putExtra("result","");
+				case 3:
+					data.putExtra("result","");
+				case 4:
+					data.putExtra("result","");
+				case 5:
+					data.putExtra("result","");
+				case 6:
+					data.putExtra("result","");
+				}
+				data.putExtra("result","");
+				data.putExtra("result","");
+				data.putExtra("result","");
+				data.putExtra("result","");
+				setResult(RESULT_OK, data);
+				finish();
+			}
+		});
+		//Cancel Button. 
+		cancel_Button = (Button)findViewById(R.id.cancelCrawlButton);
+		cancel_Button.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+					finish();	
+			}
+						
+		});
 	}
 }

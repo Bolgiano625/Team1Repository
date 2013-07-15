@@ -84,49 +84,71 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/informationCrawl"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="190dp"
         android:paddingLeft="0dp"
         android:textSize="12sp"/>
 	<!-- RadioGroup for crawl selections. -->
     <RadioGroup 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="0dp">
 		<!-- RadioButton for Solid Concrete or Masonry. -->
 		<RadioButton 
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
 	    	android:text="@string/sCOM"
-	    	android:textSize="12dp"
+	    	android:textSize="10dp"
 	    	android:id="@+id/sCOMRadioButton"/>        
     	<!-- RadioButton for Masonry Block w/ Empty Cells. -->
 		<RadioButton 
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
 	    	android:text="@string/mBWEC"
-	    	android:textSize="12dp"
+	    	android:textSize="10dp"
 	    	android:id="@+id/mBWECRadioButton"/>
 		<!-- RadioButton for Masonry Block w/ Integral Insulation. -->
 		<RadioButton 
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
 	    	android:text="@string/mBWII"
-	    	android:textSize="12dp"
+	    	android:textSize="10dp"
 	    	android:id="@+id/mBWIIRadioButton"/>
 		<!-- RadioButton for Wood Frame -->
 		<RadioButton 
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
 	    	android:text="@string/wF"
-	    	android:textSize="12dp"
+	    	android:textSize="10dp"
 	    	android:id="@+id/wFRadioButton"/>
+		<!-- RadioButton for Insulated Concreate -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/iCF"
+	    	android:textSize="10dp"
+	    	android:id="@+id/iCFRadioButton"/>
 		<!-- RadioButton for Other -->
 		<RadioButton 
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
 	    	android:text="@string/other"
-	    	android:textSize="12dp"
-	    	android:id="@+id/iCFRadioButton"/>
+	    	android:textSize="10dp"
+	    	android:id="@+id/otherCrawlRadioButton"/>
 	</RadioGroup>    
-
+	<Button
+        android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="400dp"
+        android:layout_marginLeft="5dp"
+        android:text="@string/createCrawl"
+	    android:textSize="12dp"
+	    android:id="@+id/createCrawlButton"/>
+    <Button
+        android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="400dp"
+        android:layout_marginLeft="110dp"
+        android:text="@string/cancel"
+	    android:textSize="12dp"
+	    android:id="@+id/cancelCrawlButton"/>
 </RelativeLayout>

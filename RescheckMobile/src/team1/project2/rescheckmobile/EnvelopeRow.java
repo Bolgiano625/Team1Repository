@@ -33,12 +33,20 @@ public class EnvelopeRow extends Activity{
 	private TextView uFactor_TextView;
 	//TextView for the SHGC column.
 	private TextView sHGC_TextView;
-	
+	//Communication between the envelope activity.
+	private Bundle extra;
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.row_layout);
+		
+		extra = getIntent().getExtras();
+		//Checks to see if extra is null.
+		if(extra == null){
+			return;
+		}
 		instantiateTextFields();
 		instantiateTextView();
+		finish();
 	}
 	
 	/**
@@ -49,12 +57,16 @@ public class EnvelopeRow extends Activity{
 	private void instantiateTextFields(){
 		//Component column.
 		component_EditText = (EditText)findViewById(R.id.componentColumn);
+		component_EditText.setText(extra.getString("v1"));
 		//Gross area column.
 		grossArea_EditText = (EditText)findViewById(R.id.grossAreaColumn);
+		grossArea_EditText.setText(extra.getString("v3"));
 		//Cavity insulation R-Value column.
 		cavityIRValue_EditText = (EditText)findViewById(R.id.cavityIRValueColumn);
+		cavityIRValue_EditText.setText(extra.getString("v4"));
 		//Continuous insulation R-Value column.
 		continuousIRValue_EditText = (EditText)findViewById(R.id.continuousIRValueColumn);
+		continuousIRValue_EditText.setText(extra.getString("v5"));
 	}
 	
 	/**
@@ -65,11 +77,15 @@ public class EnvelopeRow extends Activity{
 	private void instantiateTextView(){
 		//Index column.
 		index_TextView = (TextView)findViewById(R.id.indexColumn);
+		//index_TextView.setText(extra.getString("v1"));
 		//Assembly column.
 		assembly_TextView = (TextView)findViewById(R.id.assemblyColumn);
+		assembly_TextView.setText(extra.getString("v2"));
 		//U-Factor column.
 		uFactor_TextView = (TextView)findViewById(R.id.uFactorColumn);
+		assembly_TextView.setText(extra.getString("v6"));
 		//SHGC column.
 		sHGC_TextView = (TextView)findViewById(R.id.sHGCColumn);
+		assembly_TextView.setText(extra.getString("v7"));
 	}
 }
