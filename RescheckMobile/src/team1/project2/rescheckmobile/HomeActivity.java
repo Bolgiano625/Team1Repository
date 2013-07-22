@@ -1,6 +1,7 @@
 package team1.project2.rescheckmobile;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,6 +46,8 @@ public class HomeActivity extends Activity{
 		newProject_Button.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				//Start a new activity here by creating a new intent.
+				Intent i = new Intent(HomeActivity.this,MainActivity.class);
+				startActivity(i);
 			}
 		});
 		//Load Project Button

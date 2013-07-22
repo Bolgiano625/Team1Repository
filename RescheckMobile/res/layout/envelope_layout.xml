@@ -151,84 +151,6 @@
         android:text="@string/crawl"
         android:textSize="12sp"
         android:id="@+id/crawlButton"/>
-    <!-- Button used has index column header -->	    
-    <Button
-        android:layout_width="20dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:background="#d9e7f5"
-        android:textSize="8sp"
-        android:id="@+id/indexHeader"/>
-    <!-- Button used has component column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="20dp"
-        android:background="#d9e7f5"
-        android:text="@string/component"
-        android:textSize="8sp"
-        android:id="@+id/componentHeader"/>
-    <!-- Button used has assembly column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="65dp"
-        android:background="#d9e7f5"
-        android:text="@string/assembly"
-        android:textSize="8sp"
-        android:id="@+id/assemblyHeader"/>
-    <!-- Button used has gross area column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="110dp"
-        android:background="#d9e7f5"
-        android:text="@string/grossArea"
-        android:textSize="8sp"
-        android:id="@+id/grossAreaHeader"/>
-    <!-- Button used has cavity insulation r-value column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="155dp"
-        android:background="#d9e7f5"
-        android:text="@string/cavityIRValue"
-        android:textSize="8sp"
-        android:id="@+id/cavityIRValueHeader"/>
-    <!-- Button used has continuous insulation r-value column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="200dp"
-        android:background="#d9e7f5"
-        android:text="@string/continuousIRValue"
-        android:textSize="8sp"
-        android:id="@+id/continuousIRValueHeader"/>
-    <!-- Button used has u-factor column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="245dp"
-        android:background="#d9e7f5"
-        android:text="@string/uFactor"
-        android:textSize="8sp"
-        android:id="@+id/uFactorHeader"/>
-    <!-- Button used has shgc column header -->	    
-    <Button
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginLeft="290dp"
-        android:background="#d9e7f5"
-        android:text="@string/sHGC"
-        android:textSize="8sp"
-        android:id="@+id/sHGCHeader"/>
     <!-- Vertical scrollable layout to hold parameters for a project -->
     <ScrollView
         android:layout_width="fill_parent"
@@ -239,7 +161,7 @@
         android:id="@+id/verticalScrollView">
         <!-- Horizontal scrollable layout to help will limited space -->
         <HorizontalScrollView
-            android:layout_width="500dp"
+            android:layout_width="600dp"
             android:layout_height="fill_parent"
             android:id="@+id/horizontalScrollView">
             <TableLayout 
@@ -248,6 +170,125 @@
                 android:padding="5dp"
                 android:id="@+id/tableHost"
                 android:stretchColumns="*">
+                <ScrollView
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        android:background="#FFFFFF"
+        android:id="@+id/verticalEnvelopeRowScrollView">
+                <TableRow
+                    android:layout_width="match_parent"
+    				android:layout_height="match_parent">
+    				
+                	<!-- Button used has index column header -->	    
+    <Button
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:background="#d9e7f5"
+        android:text="#"
+        android:textSize="8sp"
+        android:id="@+id/indexHeader"/>
+    <!-- Button used has component column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/component"
+        android:textSize="8sp"
+        android:id="@+id/componentHeader"/>
+    <!-- Button used has assembly column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/assembly"
+        android:textSize="8sp"
+        android:id="@+id/assemblyHeader"/>
+    <!-- Button used has gross area column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/grossArea"
+        android:textSize="8sp"
+        android:id="@+id/grossAreaHeader"/>
+    <!-- Button used has cavity insulation r-value column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/cavityIRValue"
+        android:textSize="8sp"
+        android:id="@+id/cavityIRValueHeader"/>
+    <!-- Button used has continuous insulation r-value column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/continuousIRValue"
+        android:textSize="8sp"
+        android:id="@+id/continuousIRValueHeader"/>
+    <!-- Button used has u-factor column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/uFactor"
+        android:textSize="8sp"
+        android:id="@+id/uFactorHeader"/>
+    <!-- Button used has shgc column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/sHGC"
+        android:textSize="8sp"
+        android:id="@+id/sHGCHeader"/>
+    <!-- Button used has Depth of Insulation column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/dOIEnvelope"
+        android:textSize="8sp"
+        android:id="@+id/dOIHeader"/>
+    <!-- Button used has Wall Height column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/wH"
+        android:textSize="8sp"
+        android:id="@+id/wHHeader"/>
+    <!-- Button used has Depth Below Grade column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/dBGEnvelope"
+        android:textSize="8sp"
+        android:id="@+id/dBGHeader"/>    
+        <!-- Button used has Depth Below Inside Grade column header -->	    
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:background="#d9e7f5"
+        android:text="@string/dBIGEnvelope"
+        android:textSize="8sp"
+        android:id="@+id/dBIGHeader"/>
+                </TableRow>
+                </ScrollView>
             </TableLayout>
         </HorizontalScrollView>
     </ScrollView>

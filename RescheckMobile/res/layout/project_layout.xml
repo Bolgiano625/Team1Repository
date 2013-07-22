@@ -194,6 +194,7 @@
 	 		   android:layout_marginTop="30dp"
 			   android:layout_marginLeft="50dp"
 	 		   android:textSize="10sp"
+	 		   android:entries="@array/codeProjectSpinner"
 	 		   android:layout_width="100dp"
 	 		   android:layout_height="wrap_content"/>
 			<!-- Spinner for the state choices -->
@@ -202,6 +203,7 @@
 	    		android:layout_marginTop="65dp"
 			    android:layout_marginLeft="50dp"
 	    		android:textSize="10sp"
+	    		android:entries="@array/stateProjectSpinner"
 	    		android:layout_width="100dp"
 	    		android:layout_height="wrap_content"/>
 			<!-- Spinner for the city choices -->
@@ -210,6 +212,7 @@
 			    android:layout_marginTop="105dp"
 			    android:layout_marginLeft="60dp"
 			    android:textSize="10sp"
+			    android:entries="@array/cityProjectSpinner"
 			    android:layout_width="100dp"
 			    android:layout_height="wrap_content"/>
 			<!-- Spinner for the county choices -->
@@ -218,6 +221,7 @@
 			    android:layout_marginTop="145dp"
 			    android:layout_marginLeft="60dp"
 			    android:textSize="10sp"
+			    android:entries="@array/countyProjectSpinner"
 			    android:layout_width="100dp"
 		  	    android:layout_height="wrap_content"/>
 			<!-- RadioButton group for Code/Location -->
@@ -316,13 +320,13 @@
 	    android:text="@string/projectDetails"/>
 	<EditText
     	android:id="@+id/noteTextArea"
-    	android:paddingBottom="270dp"
     	android:layout_marginTop="140dp"
 	    android:layout_marginLeft="175dp"
 	    android:textSize="10sp"
+	    android:inputType="textMultiLine"
     	android:layout_width="100dp"
     	android:layout_height="300dp"
     	android:background="#FFFFFF"
-    	android:hint="@string/note"
-    	android:inputType="text"/>
+    	android:singleLine="false"
+    	android:hint="@string/note"/>
 </RelativeLayout>

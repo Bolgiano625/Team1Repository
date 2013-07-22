@@ -33,17 +33,21 @@ public class EnvelopeRow extends Activity{
 	private TextView uFactor_TextView;
 	//TextView for the SHGC column.
 	private TextView sHGC_TextView;
+	//TextField for the depth of insulation column.
+	private EditText depthOfInsulation_EditText;
+	//TextField for the wall height column.
+	private EditText wallHeight_EditText;
+	//TextField for the depth below grade column.
+	private EditText depthBelowGrade_EditText;
+	//TextField for the depth below inside grade column.
+	private EditText depthBelowInsideGrade_EditText;
 	//Communication between the envelope activity.
 	private Bundle extra;
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.row_layout);
-		
 		extra = getIntent().getExtras();
-		//Checks to see if extra is null.
-		if(extra == null){
-			return;
-		}
+		
 		instantiateTextFields();
 		instantiateTextView();
 		finish();
@@ -67,6 +71,18 @@ public class EnvelopeRow extends Activity{
 		//Continuous insulation R-Value column.
 		continuousIRValue_EditText = (EditText)findViewById(R.id.continuousIRValueColumn);
 		continuousIRValue_EditText.setText(extra.getString("v5"));
+		//Depth of Insulation column.
+		depthOfInsulation_EditText = (EditText)findViewById(R.id.dOIColumn);
+		depthOfInsulation_EditText.setText(extra.getString("v8"));
+		//Wall Height column.
+		wallHeight_EditText = (EditText)findViewById(R.id.wHColumn);
+		wallHeight_EditText.setText(extra.getString("v9"));
+		//Depth Below Grade column.
+		depthBelowGrade_EditText = (EditText)findViewById(R.id.dBGColumn);
+		depthBelowGrade_EditText.setText(extra.getString("v10"));
+		//Depth Below Inside Grade column.
+		depthBelowInsideGrade_EditText = (EditText)findViewById(R.id.dBIGColumn);
+		depthBelowInsideGrade_EditText.setText(extra.getString("v11"));
 	}
 	
 	/**
@@ -77,15 +93,15 @@ public class EnvelopeRow extends Activity{
 	private void instantiateTextView(){
 		//Index column.
 		index_TextView = (TextView)findViewById(R.id.indexColumn);
-		//index_TextView.setText(extra.getString("v1"));
+		//index_TextView.setText(extra.getString("v0"));
 		//Assembly column.
 		assembly_TextView = (TextView)findViewById(R.id.assemblyColumn);
 		assembly_TextView.setText(extra.getString("v2"));
 		//U-Factor column.
 		uFactor_TextView = (TextView)findViewById(R.id.uFactorColumn);
-		assembly_TextView.setText(extra.getString("v6"));
+		uFactor_TextView.setText(extra.getString("v6"));
 		//SHGC column.
 		sHGC_TextView = (TextView)findViewById(R.id.sHGCColumn);
-		assembly_TextView.setText(extra.getString("v7"));
+		sHGC_TextView.setText(extra.getString("v7"));
 	}
 }

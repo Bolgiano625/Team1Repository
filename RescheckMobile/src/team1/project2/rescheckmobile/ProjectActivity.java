@@ -1,6 +1,7 @@
 package team1.project2.rescheckmobile;
 import team1.project2.rescheckmobile.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -284,10 +285,24 @@ public class ProjectActivity extends Activity{
 		projectDetails_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				//What happens when you click save?
+				Intent i = new Intent(ProjectActivity.this,ProjectDetailsActivity.class);
+				startActivityForResult(i, 0);
 			}
 		});
-		
+	}
+	
+	/**
+	 * updatesResultsFromAddingComponentsToList
+	 * 
+	 * Updates the list with a component that is gathered from an intent.
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+			if(data.getExtras() != null){
+				//Project Details String.
+				String temp_String = "Site/Permit:\n\nConstruction Site\n-Address:" + data.getStringExtra("1v1") + "\n-City:" + data.getStringExtra("1v2") + "\n-State:" + data.getStringExtra("1v3") + "\n-Zip Code:" + data.getStringExtra("1v4") + "\nPermit:\n-Permit #:" + data.getStringExtra("1v5") + "\n-Permit Date:" + data.getStringExtra("1v6") + "\n\nOwner/Agent:\n\nName\n-First Name:" + data.getStringExtra("1v13") + "\n-Last Name:"  + data.getStringExtra("1v14") + "\nContact Information\n-Address:" + data.getStringExtra("1v7") + "\n-City:" + data.getStringExtra("1v8") + "\n-State:" + data.getStringExtra("1v9") + "\n-Zip Code:" + data.getStringExtra("1v10") + "\n-Phone #:" + data.getStringExtra("1v11") + "\n-E-mail:" + data.getStringExtra("1v12") + "\n\nDesigner/Contractor:\n\nName\n-First Name:" + data.getStringExtra("1v21") + "\n-Last Name:"  + data.getStringExtra("1v22") + "\nContact Information\n-Address:" + data.getStringExtra("1v15") + "\n-City:" + data.getStringExtra("1v16") + "\n-State:" + data.getStringExtra("1v17") + "\n-Zip Code:" + data.getStringExtra("1v18") + "\n-Phone #:" + data.getStringExtra("1v19") + "\n-E-mail:" + data.getStringExtra("1v20");
+				notes_EditText.setText(temp_String);
+			}
 	}
 	
 	/**

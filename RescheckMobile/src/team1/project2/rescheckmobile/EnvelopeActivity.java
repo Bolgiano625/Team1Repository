@@ -5,12 +5,17 @@ import team1.project2.rescheckmobile.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 /**
  * EnvelopeActivity Class
@@ -56,9 +61,15 @@ public class EnvelopeActivity extends Activity{
 	//TableLayout.
 	private TableLayout table_TableLayout;
 	//Row View.
-	private View row_View;
+	private TableRow row_TableRow;
 	//Linked list of rows.
-	public static LinkedList<EnvelopeRow> rows_LinkedList;
+	public static LinkedList<TableRow> rows_LinkedList;
+	//Row counter.
+	private int rowCounter_int = 1;
+	//Move counter.
+	private int moveCounter_int = 0;
+	//Edit button boolean.
+	private boolean edit_boolean = false;
 	
 	//Ceiling result constant.
 	private static final int CEILING_RESULT = 0;
@@ -80,7 +91,7 @@ public class EnvelopeActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.envelope_layout);
-		rows_LinkedList = new LinkedList<EnvelopeRow>();
+		rows_LinkedList = new LinkedList<TableRow>();
 		initializeTableLayout();
 		instantiateRowButtons();
 		instantiateAddButtons();
@@ -106,7 +117,65 @@ public class EnvelopeActivity extends Activity{
 		edit_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				
+				if(rows_LinkedList.size() > 0){
+					edit_boolean = true;
+					if(moveCounter_int == rows_LinkedList.size()){
+						moveCounter_int--;
+					}
+					TableRow temp_TableRow = (TableRow)rows_LinkedList.get(moveCounter_int);
+					ScrollView temp_ScrollView = (ScrollView)temp_TableRow.getChildAt(0);
+					TableRow row_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+					EditText tempComponent_EditText = (EditText)row_TableRow.getChildAt(1);
+					if(tempComponent_EditText.getText().toString().equals("Ceiling")){
+						System.out.println("Text:" + tempComponent_EditText.getText());
+						//Ceiling window intent.
+						Intent i = new Intent(EnvelopeActivity.this,CeilingActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,CEILING_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Skylight")){
+						//Skylight window intent.
+						Intent i = new Intent(EnvelopeActivity.this,SkylightActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,SKYLIGHT_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Wall")){
+						//Wall window intent.
+						Intent i = new Intent(EnvelopeActivity.this,WallActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,WALL_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Window")){
+						//Window window intent.
+						Intent i = new Intent(EnvelopeActivity.this,WindowActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,WINDOW_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Door")){
+						//Door window intent.
+						Intent i = new Intent(EnvelopeActivity.this,DoorActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,DOOR_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Basement")){
+						//Basement window intent.
+						Intent i = new Intent(EnvelopeActivity.this,BasementActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,BASEMENT_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Floor")){
+						//Floor window intent.
+						Intent i = new Intent(EnvelopeActivity.this,Floor_Layout.class);
+						//Request results from activity.
+						startActivityForResult(i,FLOOR_RESULT);
+					}
+					else if(tempComponent_EditText.getText().toString().equals("Crawl")){
+						//Crawl window intent.
+						Intent i = new Intent(EnvelopeActivity.this,CrawlActivity.class);
+						//Request results from activity.
+						startActivityForResult(i,CRAWL_RESULT);
+					}
+				}
 			}
 		});
 		//Duplicate button and listener for it.
@@ -114,7 +183,10 @@ public class EnvelopeActivity extends Activity{
 		duplicate_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				
+				if(rows_LinkedList.size() > 0){
+					TableRow temp_TableRow = (TableRow)rows_LinkedList.get(moveCounter_int);
+					makeDuplicateRow(temp_TableRow);
+				}
 			}
 		});
 		//Move up button and listener for it.
@@ -122,7 +194,22 @@ public class EnvelopeActivity extends Activity{
 		moveUp_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-					
+				if(rows_LinkedList.size() > 0){
+					for(int i = 0; i < rows_LinkedList.size(); i++){
+						System.out.println("Size of list:" + rows_LinkedList.size());
+						if(i == moveCounter_int-1){
+						//TableRow temp_TableRow = (TableRow)table_TableLayout.getChildAt(moveCounter_int);	
+						rows_LinkedList.get(i).getChildAt(0).setBackgroundColor(Color.BLACK);
+						}
+						else{
+							rows_LinkedList.get(i).getChildAt(0).setBackgroundColor(Color.WHITE);
+						}
+					}
+					if(moveCounter_int > 1){
+						moveCounter_int--;
+					}
+					System.out.println("MoveCount:" + moveCounter_int);
+				}
 			}
 		});
 		//Move down button and listener for it.
@@ -130,7 +217,23 @@ public class EnvelopeActivity extends Activity{
 		moveDown_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-		
+				if(rows_LinkedList.size() > 0){
+					for(int i = 0; i < rows_LinkedList.size(); i++){
+						System.out.println("Size of list:" + rows_LinkedList.size());
+						if(i == moveCounter_int+1){
+						//TableRow temp_TableRow = (TableRow)table_TableLayout.getChildAt(moveCounter_int);	
+						rows_LinkedList.get(i).getChildAt(0).setBackgroundColor(Color.BLACK);
+						}
+						else{
+							rows_LinkedList.get(i).getChildAt(0).setBackgroundColor(Color.WHITE);
+						}
+					}
+					if(rows_LinkedList.size() > moveCounter_int+1){
+						moveCounter_int++;
+					}
+					
+					System.out.println("MoveCount:" + moveCounter_int);
+				}
 			}
 		});
 		//Delete button and listener for it.
@@ -138,7 +241,13 @@ public class EnvelopeActivity extends Activity{
 		delete_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-			
+				if(rows_LinkedList.size() > 0){
+					table_TableLayout.removeViewAt(rows_LinkedList.size());
+					rows_LinkedList.removeLast();
+					if(moveCounter_int > 0){
+						moveCounter_int--;
+					}
+				}
 			}
 		});
 	}
@@ -176,7 +285,10 @@ public class EnvelopeActivity extends Activity{
 		wall_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-											
+				//Wall window intent.
+				Intent i = new Intent(EnvelopeActivity.this,WallActivity.class);
+				//Request results from activity.
+				startActivityForResult(i,WALL_RESULT);
 			}
 		});
 		//Window button and listener for it.
@@ -184,7 +296,10 @@ public class EnvelopeActivity extends Activity{
 		window_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-											
+				//Window window intent.
+				Intent i = new Intent(EnvelopeActivity.this,WindowActivity.class);
+				//Request results from activity.
+				startActivityForResult(i,WINDOW_RESULT);
 			}
 		});
 		//Door button and listener for it.
@@ -203,7 +318,10 @@ public class EnvelopeActivity extends Activity{
 		basement_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-													
+				//Basement window intent.
+				Intent i = new Intent(EnvelopeActivity.this,BasementActivity.class);
+				//Request results from activity.
+				startActivityForResult(i,BASEMENT_RESULT);
 			}
 		});
 		//Floor button and listener for it.
@@ -237,37 +355,28 @@ public class EnvelopeActivity extends Activity{
 	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
-		//Result from ceiling intent.
-		if(resultCode == RESULT_OK && requestCode == CEILING_RESULT){
-			if(data.hasExtra("1")){
+			if(data.getExtras() != null){
 				Intent i = new Intent(this,EnvelopeRow.class);
-				i.putExtra("v1","Ceiling");
-				i.putExtra("v2","Flat or Scissor Truss");
-				i.putExtra("v3","0ft^2");
-				i.putExtra("v4","0");
-				i.putExtra("v5","0");
-				i.putExtra("v6","0.568");
-				i.putExtra("v7","");
+				//i.putExtra("v0",data.getStringExtra("1v0"));
+				i.putExtra("v1",data.getStringExtra("1v1"));
+				i.putExtra("v2",data.getStringExtra("1v2"));
+				i.putExtra("v3",data.getStringExtra("1v3"));
+				i.putExtra("v4",data.getStringExtra("1v4"));
+				i.putExtra("v5",data.getStringExtra("1v5"));
+				i.putExtra("v6",data.getStringExtra("1v6"));
+				i.putExtra("v7",data.getStringExtra("1v7"));
+				i.putExtra("v8",data.getStringExtra("1v8"));
+				i.putExtra("v9",data.getStringExtra("1v9"));
+				i.putExtra("v10",data.getStringExtra("1v10"));
+				i.putExtra("v11",data.getStringExtra("1v11"));
 				startActivity(i);
-				makeComponentRow();
+				if(!edit_boolean){
+					makeComponentRow(i);
+				}
+				else{
+					editComponentRow(moveCounter_int, i);
+				}
 			}
-		}
-		//Result from skylight intent.
-		if(resultCode == RESULT_OK && requestCode == SKYLIGHT_RESULT){
-					
-		}
-		//Result from door intent.
-		if(resultCode == RESULT_OK && requestCode == DOOR_RESULT){
-							
-		}
-		//Result from floor intent.
-		if(resultCode == RESULT_OK && requestCode == FLOOR_RESULT){
-							
-		}
-		//Result from crawl intent.
-		if(resultCode == RESULT_OK && requestCode == CRAWL_RESULT){
-							
-		}
 	}
 	
 	/**
@@ -275,9 +384,127 @@ public class EnvelopeActivity extends Activity{
 	 * 
 	 * Creates a new component row.
 	 */
-	private void makeComponentRow(){
+	private void makeComponentRow(Intent i){
 		LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		row_View = balloon.inflate(R.layout.row_layout, null);
-		table_TableLayout.addView(row_View);
+		row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
+		TextView index_TextView = (TextView)row_TableRow.findViewById(R.id.indexColumn);
+		index_TextView.setText(rowCounter_int +"");
+		EditText component_EditText = (EditText)row_TableRow.findViewById(R.id.componentColumn);
+		component_EditText.setText(i.getStringExtra("v1"));
+		TextView assembly_TextView = (TextView)row_TableRow.findViewById(R.id.assemblyColumn);
+		assembly_TextView.setText(i.getStringExtra("v2"));
+		EditText grossArea_EditText = (EditText)row_TableRow.findViewById(R.id.grossAreaColumn);
+		grossArea_EditText.setText(i.getStringExtra("v3"));
+		EditText cavityIRValue_EditText = (EditText)row_TableRow.findViewById(R.id.cavityIRValueColumn);
+		cavityIRValue_EditText.setText(i.getStringExtra("v4"));
+		EditText continuousIRValue_EditText = (EditText)row_TableRow.findViewById(R.id.continuousIRValueColumn);
+		continuousIRValue_EditText.setText(i.getStringExtra("v5"));
+		EditText uFactor_EditText = (EditText)row_TableRow.findViewById(R.id.uFactorColumn);
+		uFactor_EditText.setText(i.getStringExtra("v6"));
+		TextView sHGC_TextView = (TextView)row_TableRow.findViewById(R.id.sHGCColumn);
+		sHGC_TextView.setText(i.getStringExtra("v7"));
+		EditText dOI_EditText = (EditText)row_TableRow.findViewById(R.id.dOIColumn);
+		dOI_EditText.setText(i.getStringExtra("v8"));
+		EditText wH_EditText = (EditText)row_TableRow.findViewById(R.id.wHColumn);
+		wH_EditText.setText(i.getStringExtra("v9"));
+		EditText dBG_EditText = (EditText)row_TableRow.findViewById(R.id.dBGColumn);
+		dBG_EditText.setText(i.getStringExtra("v10"));
+		EditText dBIG_EditText = (EditText)row_TableRow.findViewById(R.id.dBIGColumn);
+		dBIG_EditText.setText(i.getStringExtra("v11"));
+		rows_LinkedList.add(row_TableRow);
+		row_TableRow.getChildAt(0).setBackgroundColor(Color.BLACK);
+		table_TableLayout.addView(row_TableRow);
+		//if(rowCounter_int < 1){
+			//moveCounter_int++;
+		//}
+		rowCounter_int++;
+	}
+	
+	/**
+	 * makeDuplicateComponentRow
+	 * 
+	 * Creates a new component row.
+	 */
+	private void makeDuplicateRow(TableRow row){
+		ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
+		TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+		System.out.println("Children of row:" + temp_TableRow.getChildCount());
+		LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
+		TextView index_TextView = (TextView)row_TableRow.findViewById(R.id.indexColumn);
+		index_TextView.setText(rowCounter_int +"");
+		EditText component_EditText = (EditText)row_TableRow.findViewById(R.id.componentColumn);
+		EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
+		component_EditText.setText(tempComp_EditText.getText().toString());
+		TextView assembly_TextView = (TextView)row_TableRow.findViewById(R.id.assemblyColumn);
+		TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
+		assembly_TextView.setText(tempAssembly_EditText.getText());
+		EditText grossArea_EditText = (EditText)row_TableRow.findViewById(R.id.grossAreaColumn);
+		EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
+		grossArea_EditText.setText(tempGArea_EditText.getText());
+		EditText cavityIRValue_EditText = (EditText)row_TableRow.findViewById(R.id.cavityIRValueColumn);
+		EditText tempCIRV_EditText = (EditText)temp_TableRow.getChildAt(4);
+		cavityIRValue_EditText.setText(tempCIRV_EditText.getText());
+		EditText continuousIRValue_EditText = (EditText)row_TableRow.findViewById(R.id.continuousIRValueColumn);
+		EditText tempConIRV_EditText = (EditText)temp_TableRow.getChildAt(5);
+		continuousIRValue_EditText.setText(tempConIRV_EditText.getText());
+		EditText uFactor_EditText = (EditText)row_TableRow.findViewById(R.id.uFactorColumn);
+		EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
+		uFactor_EditText.setText(tempUF_EditText.getText());
+		TextView sHGC_TextView = (TextView)row_TableRow.findViewById(R.id.sHGCColumn);
+		TextView tempSHGC_EditText = (TextView)temp_TableRow.getChildAt(7);
+		sHGC_TextView.setText(tempSHGC_EditText.getText());
+		EditText dOI_EditText = (EditText)row_TableRow.findViewById(R.id.dOIColumn);
+		EditText tempDOI_EditText = (EditText)temp_TableRow.getChildAt(8);
+		dOI_EditText.setText(tempDOI_EditText.getText());
+		EditText wH_EditText = (EditText)row_TableRow.findViewById(R.id.wHColumn);
+		EditText tempWH_EditText = (EditText)temp_TableRow.getChildAt(9);
+		wH_EditText.setText(tempWH_EditText.getText());
+		EditText dBG_EditText = (EditText)row_TableRow.findViewById(R.id.dBGColumn);
+		EditText tempDBG_EditText = (EditText)temp_TableRow.getChildAt(10);
+		dBG_EditText.setText(tempDBG_EditText.getText());
+		EditText dBIG_EditText = (EditText)row_TableRow.findViewById(R.id.dBIGColumn);
+		EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
+		dBIG_EditText.setText(tempDBIG_EditText.getText());
+		rows_LinkedList.add(row_TableRow);
+		table_TableLayout.addView(row_TableRow);
+		rowCounter_int++;
+	}
+	
+	/**
+	 * editComponentRow
+	 * 
+	 * Creates a new component row.
+	 */
+	private void editComponentRow(int count,Intent i){
+		TableRow row = rows_LinkedList.get(count);
+		ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
+		TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+		System.out.println("Children of row:" + temp_TableRow.getChildCount());
+		LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
+		EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
+		tempComp_EditText.setText(i.getStringExtra("v1"));
+		TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
+		tempAssembly_EditText.setText(i.getStringExtra("v2"));
+		EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
+		tempGArea_EditText.setText(i.getStringExtra("v3"));
+		EditText tempCIRV_EditText = (EditText)temp_TableRow.getChildAt(4);
+		tempCIRV_EditText.setText(i.getStringExtra("v4"));
+		EditText tempConIRV_EditText = (EditText)temp_TableRow.getChildAt(5);
+		tempConIRV_EditText.setText(i.getStringExtra("v5"));
+		EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
+		tempUF_EditText.setText(i.getStringExtra("v6"));
+		TextView tempSHGC_EditText = (TextView)temp_TableRow.getChildAt(7);
+		tempSHGC_EditText.setText(i.getStringExtra("v7"));
+		EditText tempDOI_EditText = (EditText)temp_TableRow.getChildAt(8);
+		tempDOI_EditText.setText(i.getStringExtra("v8"));
+		EditText tempWH_EditText = (EditText)temp_TableRow.getChildAt(9);
+		tempWH_EditText.setText(i.getStringExtra("v9"));
+		EditText tempDBG_EditText = (EditText)temp_TableRow.getChildAt(10);
+		tempDBG_EditText.setText(i.getStringExtra("v10"));
+		EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
+		tempDBIG_EditText.setText(i.getStringExtra("v11"));
+		edit_boolean = false;
 	}
 }

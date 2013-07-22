@@ -156,23 +156,61 @@ public class CeilingActivity extends Activity{
 				Intent data = new Intent();
 				switch(radioButtonPressed){
 				case 1:
-					data.putExtra("1","1");
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Flat or Scissor Truss");
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","0");
+					data.putExtra("1v5","0");
+					break;
 				case 2:
-					data.putExtra("2","2");
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Cathedral");
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","0");
+					data.putExtra("1v5","0");
+					break;
 				case 3:
-					data.putExtra("3","3");
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Raised or Energy Truss");
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","0");
+					data.putExtra("1v5","0");
+					break;
 				case 4:
-					data.putExtra("4","4");
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Steel Truss");
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","0");
+					data.putExtra("1v5","0");
+					break;
 				case 5:
-					data.putExtra("5","5");
-					data.putExtra("result",sJR16_Spinner.getSelectedItem().toString());
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Steel Joist/Rafter,16in.o.c.," + sJR16_Spinner.getSelectedItem().toString());
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","0");
+					data.putExtra("1v5","0");
+					break;
 				case 6:
-					data.putExtra("6","6");
-					data.putExtra("result",sJR24_Spinner.getSelectedItem().toString());
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Steel Joist/Rafter,24in.o.c.," + sJR24_Spinner.getSelectedItem().toString());
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","0");
+					data.putExtra("1v5","0");
+					break;
 				case 7:
-					data.putExtra("7","7");
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Structural Insulated Panels");
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","");
+					data.putExtra("1v5","0");
+					break;
 				case 8:
-					data.putExtra("8","8");
+					data.putExtra("1v1","Ceiling");
+					data.putExtra("1v2","Other");
+					data.putExtra("1v3","0ft^2");
+					data.putExtra("1v4","");
+					data.putExtra("1v5","");
+					break;
 				}
 				setResult(RESULT_OK, data);
 				finish();

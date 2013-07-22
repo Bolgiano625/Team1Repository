@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Project details -->
+    <string name="sPButton">Site/Permit</string>
+    <string name="oAButton">Owner/Agent</string>
+    <string name="dCButton">Designer/Contractor</string>
+    <string name="uPDDetails">Update Project Details</string>
+    <!-- Site/Permit details -->
+    <string name="sPInformation">Enter the building location and permit number/date (if available). This information will appear on your compliance report.</string>
+    <string name="sPCS">Construction Site</string>
+    <string name="address">Address:</string>
+    <string name="zipCode">Zip Code:</string>
+    <string name="permit">Permit</string>
+    <string name="permitNumber">Permit #:</string>
+    <string name="permitDate">Permit Date:</string>
+    <string name="update">Update</string>
+    <!-- Owner/Agent details -->
+    <string name="oAInformation">Enter the name and contact information of the Owner/Agent for this building. This information will appear on the compliance report.</string>
+    <string name="name">Name</string>
+    <string name="fName">First Name:</string>
+    <string name="contact">Contact Information</string>
+    <string name="lName">Last Name:</string>
+    <string name="company">Company:</string>
+    <string name="phoneNumber">Phone #:</string>
+    <string name="email">E-mail:</string>
+    <!-- Designer/Contractor details -->
+    <string name="dCInformation">Enter the name and contact information of the Designer/Contractor for this building. This information will appear on the compliance report.</string>
     <!-- Strings for Home tab -->
     <string name="app_name">REScheck Mobile</string>
     <string name="action_settings">Settings</string>
@@ -31,6 +56,10 @@
 	<string name="checkCompliance">Check Compliance</string>
 	<string name="note">notes</string>
 	<!-- Strings for Envelope tab. -->
+	<string name="dOIEnvelope">Depth\nOf\nInsulation</string>
+	<string name="wH">Wall\nHeight</string>
+	<string name="dBGEnvelope">Depth\nBelow\nGrade</string>
+	<string name="dBIGEnvelope">Depth\nBelow\nInside Grade</string>
 	<string name="edit">Edit</string>
 	<string name="duplicate">Duplicate</string>
 	<string name="moveUp">Move Up</string>
@@ -163,4 +192,124 @@ See the help for more information.</string>
     	<item>Triple Pane</item>
     	<item>Triple Pane w/ Low-E</item>
     </string-array>
+    <!-- Strings for window screen -->
+<string name="wNewWindow">New Window</string>
+<string name="wFType">Frame Construction</string>
+<string name="wGType">Type of Glass</string>
+<string name="wMFrame">Metal</string>
+<string name="wMFrameWTB">Metal with Thermal Break</string>
+<string name="wWFrame">Wood</string>
+<string name="wVFrame">Vinyl</string>
+<string name="wOther">Other</string>
+<string name="wSPane">Single Pane</string>
+<string name="wDPane">Double Pane</string>
+<string name="wDPaneWLE">Double Pane with Low-E</string>
+<string name="wTPane">Triple Pane</string>
+<string name="wTPaneWLE">Triple Pane with Low-E</string>
+<string name="wCreate">Create Window</string>
+<string name="wCancel">Cancel</string>
+<!-- Strings for Wall -->
+<string name="createWall">Create Wall</string>
+<string name="wF16Wall">Wood Frame, 16"o.c.</string>
+<string name="wF24Wall">Wood Frame, 24"o.c.</string>
+<string name="sF16Wall">Steel Frame, 16"o.c.</string>
+<string name="sF24Wall">Steel Frame, 24"o.c.</string>
+<string name="sCOMWall">Solid Concrete or Masonry:</string>
+<string name="mBWECWall">Masonry Block w/ Empty Cells:</string>
+<string name="mBWIIWall">Masonry Block w/ Integral Insulation:</string>
+<string name="lSWall">Log-Species:</string>
+<string name="sIPWall">Structural Insulated Panels</string>
+<string name="iCFWall">Insulated Concrete Forms</string>
+<string name="lTNLWall">Log Thickness</string>
+<!-- Array for lTNLWall -->
+    <string-array name="lTNLWallSpinner">
+        <item>5"</item>
+        <item>6"</item>
+        <item>7"</item>
+        <item>8"</item>
+        <item>9"</item>
+        <item>10"</item>
+        <item>12"</item>
+        <item>14"</item>
+        <item>16"</item>
+    </string-array>
+<!-- Array for sCOMWall -->
+    <string-array name="sCOMWallSpinner">
+        <item>Exterior Insulation</item>
+        <item>Interior Insulation</item>
+        <item>No Insulation</item>
+    </string-array>
+<!-- Array for mBWIIWall -->
+    <string-array name="mBWIIWallSpinner">
+        <item>Additional Exterior Insulation</item>
+        <item>Additional Interior Insulation</item>
+        <item>No Additional Insulation</item>
+    </string-array>
+    <!-- Array for Code -->
+    <string-array name="codeProjectSpinner">
+        <item>2009 IECC</item>
+    </string-array>
+    <!-- Array for State -->
+    <string-array name="stateProjectSpinner">
+        <item>Virginia</item>
+    </string-array>
+    <!-- Array for City -->
+    <string-array name="cityProjectSpinner">
+        <item>Radford</item>
+        <item>Christiansburg</item>
+        <item>Blacksburg</item>
+    </string-array>
+    <!-- Array for County -->
+    <string-array name="countyProjectSpinner">
+        <item>Montgomery</item>
+    </string-array>
+<!-- Array for lSWall -->
+    <string-array name="lSWallSpinner">
+        <item>Baldcypress(CYP)</item>
+        <item>Douglas Fir-Larch(DFL)</item>
+        <item>E. Spruce-Pine-Fir(ESPF)</item>
+        <item>E. Softwoods(ESW)</item>
+        <item>E. Spruce(ES)</item>
+        <item>E. SWhite Pine(EWP)</item>
+        <item>Hem-Fir(HF)</item>
+        <item>Incense Cedar(IC)</item>
+        <item>Loblolly Pine(LBP)</item>
+        <item>Lodgepole Pine(LPP)</item>
+        <item>Longleaf Pine(LLP)</item>
+        <item>Mixed Southern Pine(MSP)</item>
+        <item>Ponderosa Pine(PP)</item>
+        <item>Red Cedar(RC)</item>
+        <item>Red Oak(RO)</item>
+        <item>Red Pine(RP)</item>
+        <item>Red Canadian Pine(RP-N)</item>
+        <item>Shortleft Pine(SLP)</item>
+        <item>Slash Pine(SHP)</item>
+        <item>Southern Pine(SP)</item>
+        <item>Sugar Pine(SUP)</item>
+        <item>Tamarack(TAM)</item>
+        <item>W. Spruce-Pine-Fir(WSPF)</item>
+        <item>W. Red Canadian Cedar(WRC-N)</item>
+        <item>W. Red Cedar(WRC)</item>
+        <item>W. Softwoods(WS)</item>
+        <item>W. White Pine(WWP)</item>
+        <item>White Cedar(WC)</item>
+        <item>White Fir(WF)</item>
+        <item>White Oak(WO)</item>
+        <item>Yellow Cedar(YC)</item>
+    </string-array>        
+     <!-- Strings for the basement screen -->
+    <string name="createBasement">Create Basement</string>
+    <string name="sConcreteofManson">Soild Concrete or Masonry</string>
+    <string name="mBwEmptyCells">Masonry Block with Empty Cells</string>
+    <string name="mBwIntegral">Masonry Block with Integral Insulation</string>
+    <string name="wFrame">Wood Frame</string>
+    <string name="insulatedCF">Insulated Concreate Forms</string>
+    <string name="paragraphFirst">Enter the specified dimensions using feet(not inches) in the boxed provided. A basement wall less than 50% below grade is considered an above-grade wall and must be entered using the "Wall" button.</string>
+    <string name="wallH">Wall Height (ft)</string>
+    <string name="wallHpara">Measured from the top of the wall to the basement floor.</string>
+    <string name="depthBelow">Depth Below Grade (ft)</string>
+    <string name="depthPara">Measured from the finished outside grade to the basement floor.</string>
+    <string name="depthInsu">Depth of Insulation (ft)</string>
+    <string name="depthInsuPara">Measured from the top of the wall to where the insulation stops</string>
+    <string name="title_activity_basement">Basement</string>
 </resources>
