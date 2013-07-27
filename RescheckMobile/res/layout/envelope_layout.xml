@@ -151,6 +151,16 @@
         android:text="@string/crawl"
         android:textSize="12sp"
         android:id="@+id/crawlButton"/>
+    <!-- Check Compliance Button -->	    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginLeft="102dp"
+        android:background="#d9e7f5"
+        android:text="@string/checkCompliance"
+        android:textSize="12sp"
+        android:id="@+id/checkComplianceButton"/>
     <!-- Vertical scrollable layout to hold parameters for a project -->
     <ScrollView
         android:layout_width="fill_parent"

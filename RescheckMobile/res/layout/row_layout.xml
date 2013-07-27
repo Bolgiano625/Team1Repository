@@ -51,7 +51,7 @@
     	android:layout_height="30dp"
     	android:textSize="8sp"
     	android:background="#FFFFFF"
-    	android:hint="@string/zeroFeetSquared"
+    	android:hint="@string/zero"
     	android:inputType="text">
 	</EditText>
 	<!-- TextField for cavity insulation R-value column -->
@@ -99,6 +99,7 @@
 	    android:layout_width="45dp"
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
+	    android:hint="@string/zero"
 	    android:textSize="8sp"/>
 		<!-- TextView for Wall Height column -->
 		<EditText
@@ -107,6 +108,7 @@
 	    android:layout_width="45dp"
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
+	    android:hint="@string/zero"
 	    android:textSize="8sp"/>
 		<!-- TextView for Depth Below Grade column -->
 		<EditText
@@ -115,6 +117,7 @@
 	    android:layout_width="45dp"
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
+	    android:hint="@string/zero"
 	    android:textSize="8sp"/>
 		<!-- TextView for Depth Below Grade column -->
 		<EditText
@@ -123,6 +126,7 @@
 	    android:layout_width="45dp"
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
+	    android:hint="@string/zero"
 	    android:textSize="8sp"/>
 	</TableRow>
 	    

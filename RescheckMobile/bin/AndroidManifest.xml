@@ -16,20 +16,23 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:screenOrientation="portrait">
-        <!-- Basement activity -->
-        <activity android:name="team1.project2.rescheckmobile.BasementActivity"
+        <!-- Calculate activity -->
+        <activity android:name="team1.project2.rescheckmobile.CalculateActivity"
             android:screenOrientation="portrait"/>
-        <!-- Basement activity -->
+        <!-- Designer contractor activity -->
         <activity android:name="team1.project2.rescheckmobile.DesignerContractorActivity"
             android:screenOrientation="portrait"/>
-        <!-- Basement activity -->
+        <!-- Owner agent activity -->
         <activity android:name="team1.project2.rescheckmobile.OwnerAgentActivity"
             android:screenOrientation="portrait"/>
-        <!-- Basement activity -->
+        <!-- Site permit activity -->
         <activity android:name="team1.project2.rescheckmobile.SitePermitActivity"
             android:screenOrientation="portrait"/>
-        <!-- Basement activity -->
+        <!-- Project detail activity -->
         <activity android:name="team1.project2.rescheckmobile.ProjectDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Basement activity -->
+        <activity android:name="team1.project2.rescheckmobile.BasementActivity"
             android:screenOrientation="portrait"/>
         <!-- Home activity -->
         <activity android:name="team1.project2.rescheckmobile.HomeActivity"

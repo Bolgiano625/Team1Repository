@@ -142,6 +142,7 @@ public class CrawlActivity extends Activity{
 			public void onClick(View arg0) {
 				//Intent to return values from Ceiling window.
 				Intent data = new Intent();
+				//Intent to calculate crawl value.
 				switch(radioButtonPressed){
 				case 1:
 					data.putExtra("1v1","Crawl");

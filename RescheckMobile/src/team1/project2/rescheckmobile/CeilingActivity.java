@@ -154,6 +154,9 @@ public class CeilingActivity extends Activity{
 			public void onClick(View arg0) {
 				//Intent to return values from Ceiling window.
 				Intent data = new Intent();
+				//Intent that returns U-Factor.
+				//Intent c = new Intent(CeilingActivity.this, CalculateActivity.class);
+				//startActivityForResult(c,0);
 				switch(radioButtonPressed){
 				case 1:
 					data.putExtra("1v1","Ceiling");
