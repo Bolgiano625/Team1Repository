@@ -33,7 +33,7 @@
     	android:layout_marginLeft="1dp"
     	android:background="#FFFFFF"
     	android:textSize="8sp"
-    	android:inputType="text">
+    	android:inputType="numberDecimal">
 	</EditText>
 	<!-- TextView for assemply column -->
 	<TextView
@@ -42,6 +42,7 @@
 	    android:layout_width="45dp"
     	android:layout_height="30dp"
     	android:background="#FFFFFF"
+    	android:enabled="false"
     	android:textSize="8sp"/>
 	<!-- TextField for gross area column -->
 	<EditText
@@ -52,7 +53,7 @@
     	android:textSize="8sp"
     	android:background="#FFFFFF"
     	android:hint="@string/zero"
-    	android:inputType="text">
+    	android:inputType="numberDecimal">
 	</EditText>
 	<!-- TextField for cavity insulation R-value column -->
 	<EditText
@@ -63,7 +64,7 @@
     	android:textSize="8sp"
     	android:background="#FFFFFF"
     	android:hint="@string/zero"
-    	android:inputType="text">
+    	android:inputType="numberDecimal">
 	</EditText>
 	<!-- TextField for continuous insulation R-value column -->
 	<EditText
@@ -74,7 +75,7 @@
     	android:textSize="8sp"
     	android:background="#FFFFFF"
     	android:hint="@string/zero"
-    	android:inputType="text">
+    	android:inputType="numberDecimal">
 	</EditText>
 	<!-- TextView for u-factor column -->
 	<EditText
@@ -83,6 +84,9 @@
 	    android:layout_width="45dp"
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
+	    android:inputType="numberDecimal"
+	    android:color="#FF0000"
+	    android:enabled="false"
 	    android:textSize="8sp"/>
 	<!-- TextView for shgc column -->
 	<TextView
@@ -100,6 +104,7 @@
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
 	    android:hint="@string/zero"
+	    android:inputType="numberDecimal"
 	    android:textSize="8sp"/>
 		<!-- TextView for Wall Height column -->
 		<EditText
@@ -109,6 +114,7 @@
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
 	    android:hint="@string/zero"
+	    android:inputType="numberDecimal"
 	    android:textSize="8sp"/>
 		<!-- TextView for Depth Below Grade column -->
 		<EditText
@@ -118,6 +124,7 @@
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
 	    android:hint="@string/zero"
+	    android:inputType="numberDecimal"
 	    android:textSize="8sp"/>
 		<!-- TextView for Depth Below Grade column -->
 		<EditText
@@ -127,6 +134,7 @@
 	    android:layout_height="30dp"
 	    android:background="#FFFFFF"
 	    android:hint="@string/zero"
+	    android:inputType="numberDecimal"
 	    android:textSize="8sp"/>
 	</TableRow>
 	    

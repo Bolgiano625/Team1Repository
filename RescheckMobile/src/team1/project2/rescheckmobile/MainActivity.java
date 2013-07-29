@@ -15,24 +15,23 @@ import android.widget.TabHost.TabSpec;
 public class MainActivity extends TabActivity {
 
 	//Host for tabbed panes.
-	private TabHost tabHost;
+	public static TabHost tabHost;
 	//Tab for home.
-	private TabSpec homeTab;
+	public static TabSpec homeTab;
 	//Tab for project.
-	private TabSpec projectTab;
+	public static TabSpec projectTab;
 	//Tab for envelope.
-	private TabSpec envelopeTab;
+	public static TabSpec envelopeTab;
 	//Tab for mechanical.
-	private TabSpec mechanicalTab;
+	public static TabSpec mechanicalTab;
 	//Intent for the home activity.
-	private Intent homeIntent;
+	public static Intent homeIntent;
 	//Intent for the project activity.
-	private Intent projectIntent;
+	public static Intent projectIntent;
 	//Intent for the envelope activity.
-	private Intent envelopeIntent;
+	public static Intent envelopeIntent;
 	//Intent for the mechanical activity.
-	private Intent mechanicalIntent;
-	
+	public static Intent mechanicalIntent;
 	
 	/* (non-Javadoc)
 	 * @see android.app.ActivityGroup#onCreate(android.os.Bundle)
@@ -41,8 +40,7 @@ public class MainActivity extends TabActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_project);
-		initializeTabbedView();
-		
+			initializeTabbedView();
 	}
 	
 	/**
@@ -53,14 +51,16 @@ public class MainActivity extends TabActivity {
 	private void initializeTabbedView(){
 		tabHost = getTabHost();
 		tabHost.setup();
-		instantiateHomeTab();
-		instantiateProjectTab();
-		instantiateEnvelopeTab();
-		instantiateMechanicalTab();
-		tabHost.addTab(homeTab);
-		tabHost.addTab(projectTab);
-		tabHost.addTab(envelopeTab);
-		tabHost.addTab(mechanicalTab);
+		//if(!LoadProject.loadFile_boolean){
+			instantiateHomeTab();
+			instantiateProjectTab();
+			instantiateEnvelopeTab();
+			instantiateMechanicalTab();
+			tabHost.addTab(homeTab);
+			tabHost.addTab(projectTab);
+			tabHost.addTab(envelopeTab);
+			tabHost.addTab(mechanicalTab);
+		//}
 	}
 	
 	/**

@@ -75,10 +75,10 @@
     </RadioGroup>
     <!-- Spinner for 16in -->
     <Spinner
-        android:layout_width="100dp"
+        android:layout_width="70dp"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="200dp"
-        android:layout_marginLeft="250dp"
+	    android:layout_marginTop="225dp"
+        android:layout_marginLeft="260dp"
         android:entries="@array/ceilingSpinner"
         android:id="@+id/sJR16Spinner">
     </Spinner>
@@ -86,8 +86,8 @@
     <Spinner
         android:layout_width="70dp"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="230dp"
-        android:layout_marginLeft="250dp"
+	    android:layout_marginTop="260dp"
+        android:layout_marginLeft="260dp"
         android:entries="@array/ceilingSpinner"
         android:id="@+id/sJR24Spinner">
     </Spinner>

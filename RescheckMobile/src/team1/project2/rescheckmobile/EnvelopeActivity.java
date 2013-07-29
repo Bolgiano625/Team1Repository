@@ -70,12 +70,13 @@ public class EnvelopeActivity extends Activity{
 	//Linked list of rows.
 	public static LinkedList<TableRow> rows_LinkedList;
 	//Row counter.
-	private int rowCounter_int = 1;
+	public static int rowCounter_int = 1;
 	//Move counter.
 	private int moveCounter_int = 0;
 	//Edit button boolean.
 	private boolean edit_boolean = false;
-	
+	//Delete button boolean.
+	private boolean delete_boolean = false;
 	//Ceiling result constant.
 	private static final int CEILING_RESULT = 0;
 	//Skylight result constant.
@@ -249,6 +250,7 @@ public class EnvelopeActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				if(rows_LinkedList.size() > 0){
+					delete_boolean = true;
 					table_TableLayout.removeViewAt(rows_LinkedList.size());
 					rows_LinkedList.removeLast();
 					rowCounter_int--;
@@ -256,8 +258,8 @@ public class EnvelopeActivity extends Activity{
 					if(moveCounter_int > 0){
 						moveCounter_int--;
 					}
-					
 				}
+				delete_boolean = false;
 			}
 		});
 	}
@@ -447,6 +449,9 @@ public class EnvelopeActivity extends Activity{
 					editComponentRow(moveCounter_int, i);
 				}
 				}
+				else{
+					updateComponentRowUFactor(Integer.valueOf(data.getStringExtra("rowNumber")), data);
+				}
 			}
 	}
 	
@@ -486,7 +491,7 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for continuous insulation R-Value column
 		/*continuousIRValue_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 			public void onFocusChange(View v, boolean hasFocus) {
-				if(!hasFocus){
+				if((!hasFocus && !delete_boolean){
 					System.out.println("Hi I have lost focus!");
 					Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 					startActivityForResult(c,CALCULATE_RESULT);
@@ -513,13 +518,16 @@ public class EnvelopeActivity extends Activity{
 			}
 		});*/
 		rows_LinkedList.add(row_TableRow);
-		row_TableRow.getChildAt(0).setBackgroundColor(Color.BLACK);
+		if(rows_LinkedList.size() < 2){
+			row_TableRow.getChildAt(0).setBackgroundColor(Color.BLACK);
+		}
 		table_TableLayout.addView(row_TableRow);
 		System.out.println("RowCOunter WHEN ADDING:" + rowCounter_int);
 		TableRow row = rows_LinkedList.get(rowCounter_int-1);
 		ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
 		TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
 		final EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
+		final TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
 		final EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
 		final EditText tempCIRV_EditText = (EditText)temp_TableRow.getChildAt(4);
 		final EditText tempConIRV_EditText = (EditText)temp_TableRow.getChildAt(5);
@@ -527,21 +535,24 @@ public class EnvelopeActivity extends Activity{
 		final EditText tempWH_EditText = (EditText)temp_TableRow.getChildAt(9);
 		final EditText tempDBG_EditText = (EditText)temp_TableRow.getChildAt(10);
 		final EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
+		
+		
 		//OnFocusChangeListener for gross area column
 		tempGArea_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -549,18 +560,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for cavity insulation R-Value column
 		tempCIRV_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -568,18 +580,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for continuous insulation R-Value column
 		tempConIRV_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
@@ -587,18 +600,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for depth of insulation column
 		tempDOI_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
@@ -606,18 +620,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for wall height column
 		tempWH_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 		  public void onFocusChange(View v, boolean hasFocus) {
-			      if(!hasFocus){
+			      if((!hasFocus && !delete_boolean)){
 			    	  System.out.println("Hi I have lost focus!");
 		            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 		            	c.putExtra("a", tempComp_EditText.getText().toString());
-		            	c.putExtra("b", tempGArea_EditText.getText().toString());
-		            	c.putExtra("c", "" + (rowCounter_int-1));
-		            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-						c.putExtra("e", tempConIRV_EditText.getText().toString());
-						c.putExtra("f", tempDOI_EditText.getText().toString());
-						c.putExtra("g", tempWH_EditText.toString());
-						c.putExtra("h", tempDBG_EditText.toString());
-						c.putExtra("i", tempDBIG_EditText.toString());
+		            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+		            	c.putExtra("c", tempGArea_EditText.getText().toString());
+		            	c.putExtra("d", "" + (rowCounter_int-1));
+		            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+						c.putExtra("f", tempConIRV_EditText.getText().toString());
+						c.putExtra("g", tempDOI_EditText.getText().toString());
+						c.putExtra("h", tempWH_EditText.getText().toString());
+						c.putExtra("i", tempDBG_EditText.getText().toString());
+						c.putExtra("j", tempDBIG_EditText.getText().toString());
 		            	startActivityForResult(c,CALCULATE_RESULT);
 	               }
 		       }
@@ -625,18 +640,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for depth below grade column
 		tempDBG_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -644,18 +660,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for depth below inside grade column
 		tempDBIG_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -683,7 +700,7 @@ public class EnvelopeActivity extends Activity{
 		final EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
 		component_EditText.setText(tempComp_EditText.getText().toString());
 		TextView assembly_TextView = (TextView)row_TableRow.findViewById(R.id.assemblyColumn);
-		TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
+		final TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
 		assembly_TextView.setText(tempAssembly_EditText.getText());
 		EditText grossArea_EditText = (EditText)row_TableRow.findViewById(R.id.grossAreaColumn);
 		final EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
@@ -715,18 +732,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for gross area column
 		tempGArea_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -734,18 +752,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for cavity insulation R-Value column
 		tempCIRV_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -753,18 +772,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for continuous insulation R-Value column
 		tempConIRV_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
@@ -772,18 +792,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for depth of insulation column
 		tempDOI_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
@@ -791,18 +812,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for wall height column
 		tempWH_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 		  public void onFocusChange(View v, boolean hasFocus) {
-			      if(!hasFocus){
+			      if((!hasFocus && !delete_boolean)){
 			    	  System.out.println("Hi I have lost focus!");
 		            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 		            	c.putExtra("a", tempComp_EditText.getText().toString());
-		            	c.putExtra("b", tempGArea_EditText.getText().toString());
-		            	c.putExtra("c", "" + (rowCounter_int-1));
-		            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-						c.putExtra("e", tempConIRV_EditText.getText().toString());
-						c.putExtra("f", tempDOI_EditText.getText().toString());
-						c.putExtra("g", tempWH_EditText.toString());
-						c.putExtra("h", tempDBG_EditText.toString());
-						c.putExtra("i", tempDBIG_EditText.toString());
+		            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+		            	c.putExtra("c", tempGArea_EditText.getText().toString());
+		            	c.putExtra("d", "" + (rowCounter_int-1));
+		            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+						c.putExtra("f", tempConIRV_EditText.getText().toString());
+						c.putExtra("g", tempDOI_EditText.getText().toString());
+						c.putExtra("h", tempWH_EditText.getText().toString());
+						c.putExtra("i", tempDBG_EditText.getText().toString());
+						c.putExtra("j", tempDBIG_EditText.getText().toString());
 		            	startActivityForResult(c,CALCULATE_RESULT);
 	               }
 		       }
@@ -810,18 +832,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for depth below grade column
 		tempDBG_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -829,18 +852,19 @@ public class EnvelopeActivity extends Activity{
 		//OnFocusChangeListener for depth below inside grade column
 		tempDBIG_EditText.setOnFocusChangeListener(new OnFocusChangeListener() {          
 	    public void onFocusChange(View v, boolean hasFocus) {
-	            if(!hasFocus){
+	            if((!hasFocus && !delete_boolean)){
 	            	System.out.println("Hi I have lost focus!");
 	            	Intent c = new Intent(EnvelopeActivity.this, CalculateActivity.class);
 	            	c.putExtra("a", tempComp_EditText.getText().toString());
-	            	c.putExtra("b", tempGArea_EditText.getText().toString());
-	            	c.putExtra("c", "" + (rowCounter_int-1));
-	            	c.putExtra("d", tempCIRV_EditText.getText().toString());
-					c.putExtra("e", tempConIRV_EditText.getText().toString());
-					c.putExtra("f", tempDOI_EditText.getText().toString());
-					c.putExtra("g", tempWH_EditText.toString());
-					c.putExtra("h", tempDBG_EditText.toString());
-					c.putExtra("i", tempDBIG_EditText.toString());
+	            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+	            	c.putExtra("c", tempGArea_EditText.getText().toString());
+	            	c.putExtra("d", "" + (rowCounter_int-1));
+	            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+					c.putExtra("f", tempConIRV_EditText.getText().toString());
+					c.putExtra("g", tempDOI_EditText.getText().toString());
+					c.putExtra("h", tempWH_EditText.getText().toString());
+					c.putExtra("i", tempDBG_EditText.getText().toString());
+					c.putExtra("j", tempDBIG_EditText.getText().toString());
 	            	startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
@@ -885,5 +909,21 @@ public class EnvelopeActivity extends Activity{
 		EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
 		tempDBIG_EditText.setText(i.getStringExtra("v11"));
 		edit_boolean = false;
+	}
+	
+	/**
+	 * updateComponentRowUFactor
+	 * 
+	 * Updates u-Factor in a component row.
+	 */
+	private void updateComponentRowUFactor(int count,Intent i){
+		TableRow row = rows_LinkedList.get(count-1);
+		ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
+		TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+		System.out.println("Children of row:" + temp_TableRow.getChildCount());
+		LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
+		EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
+		tempUF_EditText.setText(i.getStringExtra("uFactor"));
 	}
 }

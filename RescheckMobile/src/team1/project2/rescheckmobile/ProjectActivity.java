@@ -1,15 +1,27 @@
 package team1.project2.rescheckmobile;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import team1.project2.rescheckmobile.R;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ProjectActivity extends Activity{
@@ -276,8 +288,81 @@ public class ProjectActivity extends Activity{
 		save_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				projectTab = getProjectTab();
-				SaveProject saveActivity = new SaveProject();
+				//SharedPreferences sP_SharedPreferences = getSharedPreferences("RESCheckPrefs",MODE_PRIVATE); 
+				//SharedPreferences.Editor pE_Editor = sP_SharedPreferences.edit();
+				System.out.println("SAVING NOW!");
+				/*Uri[] intentData = new Uri[4];
+				intentData[0] = MainActivity.homeIntent.getData();
+				intentData[1] = MainActivity.projectIntent.getData();
+				intentData[2] = MainActivity.envelopeIntent.getData();
+				intentData[3] = MainActivity.mechanicalIntent.getData();*/
+				File path_File = new File(Environment.getExternalStorageDirectory().toString());
+				File project_File = new File(path_File,title_EditText.getText().toString());
+				try {
+					FileWriter fW_FileWriter = new FileWriter(project_File);
+					//String intentURIs_String = "";
+					//for(int i = 0; i < intentData.length; i++){
+						//intentURIs_String = intentURIs_String + intentData[i] + "\n";
+					//}
+					fW_FileWriter.write(title_EditText.getText().toString() + "!-!");
+					fW_FileWriter.write(code_Spinner.getSelectedItem().toString() + "!-!");
+					fW_FileWriter.write(state_Spinner.getSelectedItem().toString() + "!-!");
+					fW_FileWriter.write(city_Spinner.getSelectedItem().toString() + "!-!");
+					fW_FileWriter.write(county_Spinner.getSelectedItem().toString() + "!-!");
+					fW_FileWriter.write(city_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(county_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(newConstruction_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(addition_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(alteration_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(uATradeOff_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(performanceAlternative_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(oneAndTwoFamily_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(multiFamily_RadioButton.isChecked() + "!-!");
+					fW_FileWriter.write(conditionedFloorArea_EditText.getText().toString() + "!-!");
+					fW_FileWriter.write(notes_EditText.getText().toString() + "!-!");
+					System.out.println("ROWS:" + EnvelopeActivity.rowCounter_int);
+					for(int i = 0; i < EnvelopeActivity.rowCounter_int-1; i++){
+						TableRow row = EnvelopeActivity.rows_LinkedList.get(i);
+						ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
+						TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+						System.out.println("Children of row:" + temp_TableRow.getChildCount());
+						LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+						TableRow row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
+						TextView index_TextView = (TextView)row_TableRow.findViewById(R.id.indexColumn);
+						fW_FileWriter.write(index_TextView.getText() + "!-!");
+						final EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
+						fW_FileWriter.write(tempComp_EditText.getText().toString() + "!-!");
+						final TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
+						fW_FileWriter.write(tempAssembly_EditText.getText() + "!-!");
+						final EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
+						fW_FileWriter.write(tempGArea_EditText.getText() + "!-!");
+						final EditText tempCIRV_EditText = (EditText)temp_TableRow.getChildAt(4);
+						fW_FileWriter.write(tempCIRV_EditText.getText() + "!-!");
+						final EditText tempConIRV_EditText = (EditText)temp_TableRow.getChildAt(5);
+						fW_FileWriter.write(tempConIRV_EditText.getText() + "!-!");
+						EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
+						fW_FileWriter.write(tempUF_EditText.getText() + "!-!");
+						TextView tempSHGC_EditText = (TextView)temp_TableRow.getChildAt(7);
+						fW_FileWriter.write(tempSHGC_EditText.getText() + "!-!");
+						final EditText tempDOI_EditText = (EditText)temp_TableRow.getChildAt(8);
+						fW_FileWriter.write(tempDOI_EditText.getText() + "!-!");
+						final EditText tempWH_EditText = (EditText)temp_TableRow.getChildAt(9);
+						fW_FileWriter.write(tempWH_EditText.getText() + "!-!");
+						final EditText tempDBG_EditText = (EditText)temp_TableRow.getChildAt(10);
+						fW_FileWriter.write(tempDBG_EditText.getText() + "!-!");
+						final EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
+						fW_FileWriter.write(tempDBIG_EditText.getText() + "!-!");
+					}
+					fW_FileWriter.flush();
+					fW_FileWriter.close();
+					System.out.println("SAVING COMPLETE!");
+					Toast.makeText(ProjectActivity.this, "" + " has been saved.", Toast.LENGTH_LONG).show();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("ERROR SAVING!");
+				}
+				//SaveProject saveActivity = new SaveProject();
 			}
 		});
 		//Project Details.
@@ -291,6 +376,12 @@ public class ProjectActivity extends Activity{
 		});
 	}
 	
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+	  super.onSaveInstanceState(savedInstanceState);
+	
+	}
+	
 	/**
 	 * updatesResultsFromAddingComponentsToList
 	 * 
@@ -298,7 +389,7 @@ public class ProjectActivity extends Activity{
 	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
-			if(data.getExtras() != null){
+			if(resultCode == RESULT_OK){
 				//Project Details String.
 				String temp_String = "Site/Permit:\n\nConstruction Site\n-Address:" + data.getStringExtra("1v1") + "\n-City:" + data.getStringExtra("1v2") + "\n-State:" + data.getStringExtra("1v3") + "\n-Zip Code:" + data.getStringExtra("1v4") + "\nPermit:\n-Permit #:" + data.getStringExtra("1v5") + "\n-Permit Date:" + data.getStringExtra("1v6") + "\n\nOwner/Agent:\n\nName\n-First Name:" + data.getStringExtra("1v13") + "\n-Last Name:"  + data.getStringExtra("1v14") + "\nContact Information\n-Address:" + data.getStringExtra("1v7") + "\n-City:" + data.getStringExtra("1v8") + "\n-State:" + data.getStringExtra("1v9") + "\n-Zip Code:" + data.getStringExtra("1v10") + "\n-Phone #:" + data.getStringExtra("1v11") + "\n-E-mail:" + data.getStringExtra("1v12") + "\n\nDesigner/Contractor:\n\nName\n-First Name:" + data.getStringExtra("1v21") + "\n-Last Name:"  + data.getStringExtra("1v22") + "\nContact Information\n-Address:" + data.getStringExtra("1v15") + "\n-City:" + data.getStringExtra("1v16") + "\n-State:" + data.getStringExtra("1v17") + "\n-Zip Code:" + data.getStringExtra("1v18") + "\n-Phone #:" + data.getStringExtra("1v19") + "\n-E-mail:" + data.getStringExtra("1v20");
 				notes_EditText.setText(temp_String);

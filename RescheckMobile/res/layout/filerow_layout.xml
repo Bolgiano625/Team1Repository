@@ -21,7 +21,8 @@
         android:layout_marginLeft="5dp"
         android:background="#d9e7f5"
         android:text="@string/load"
-        android:textSize="12sp"/>
+        android:textSize="12sp"
+        android:id="@+id/loadFileButton"/>
 	<!-- Button to delete file -->
 	<Button
 	    android:layout_width="45dp"
@@ -30,5 +31,6 @@
         android:layout_marginLeft="10dp"
         android:background="#d9e7f5"
         android:text="@string/delete"
-        android:textSize="12sp"/>
+        android:textSize="12sp"
+        android:id="@+id/deleteFileButton"/>
 </TableRow>

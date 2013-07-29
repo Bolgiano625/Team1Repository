@@ -97,12 +97,12 @@ See the help for more information.</string>
 	<string name="loadTitle">Load Project</string>
 	<!-- Strings for ceiling screen -->
 	<string name="fCOST">Flat Ceiling or Scissor Truss</string>
-	<string name="cCNA">Cathedral Ceiling(no attic) </string>
+	<string name="cCNA">Cathedral Ceiling(no attic)</string>
 	<string name="rOET">Raised or Energy Truss</string>
 	<string name="sTruss">Steel Truss</string>
-	<string name="sJR16">Steel Joist/Rafter, 16in. o.c.-Member Size: </string>
-	<string name="sJR24">Steel Joist/Rafter, 24in. o.c.-Member Size: </string>
-	<string name="sIP">Structural Insulated Panels(SIPs) </string>
+	<string name="sJR16">Steel Joist/Rafter, 16in. o.c.-Member Size:</string>
+	<string name="sJR24">Steel Joist/Rafter, 24in. o.c.-Member Size:</string>
+	<string name="sIP">Structural Insulated Panels(SIPs)</string>
 	<string name="other">Other</string>
 	<string name="createCeiling">Create Ceiling</string>
 	<string name="cancel">Cancel</string>

@@ -7,8 +7,8 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingTop="170dp"
-        android:paddingRight="100dp"
+        android:paddingTop="175dp"
+        android:layout_marginRight="175dp"
         android:src="@raw/crawl"
         android:id="@+id/crawl"/>
 	<!-- TextView Wall Height(ft) -->
@@ -16,14 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/wallHeight"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="300dp"
         android:paddingLeft="200dp"
         android:textSize="12sp"/>
     <!-- TextField that stores the Height(ft). -->
 	<EditText
 	    android:layout_width="60dp"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="240dp"
+	    android:layout_marginTop="315dp"
 	    android:layout_marginLeft="200dp"
 	    android:textSize="12sp"
 	    android:background="#FFFFFF"
@@ -33,14 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dBG"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="340dp"
         android:paddingLeft="200dp"
         android:textSize="12sp"/>
     <!-- TextField that stores the Depth Below Grade(ft). -->
 	<EditText
 	    android:layout_width="60dp"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="290dp"
+	    android:layout_marginTop="355dp"
 	    android:layout_marginLeft="200dp"
 	    android:textSize="12sp"
 	    android:background="#FFFFFF"
@@ -50,14 +50,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dOI"
-        android:layout_marginTop="315dp"
+       android:layout_marginTop="380dp"
         android:paddingLeft="200dp"
         android:textSize="12sp"/>
     <!-- TextField that stores the Depth of Insulation(ft). -->
 	<EditText
 	    android:layout_width="60dp"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="345dp"
+	    android:layout_marginTop="395dp"
 	    android:layout_marginLeft="200dp"
 	    android:textSize="12sp"
 	    android:background="#FFFFFF"
@@ -67,14 +67,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dBIG"
-        android:layout_marginTop="375dp"
+        android:layout_marginTop="420dp"
         android:paddingLeft="200dp"
         android:textSize="12sp"/>
     <!-- TextField that stores the Below Inside Grade(ft). -->
 	<EditText
 	    android:layout_width="60dp"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="405dp"
+	    android:layout_marginTop="435dp"
 	    android:layout_marginLeft="200dp"
 	    android:textSize="12sp"
 	    android:background="#FFFFFF"
@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/informationCrawl"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="240dp"
         android:paddingLeft="0dp"
         android:textSize="12sp"/>
 	<!-- RadioGroup for crawl selections. -->
@@ -138,16 +138,16 @@
 	<Button
         android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="400dp"
-        android:layout_marginLeft="5dp"
+	    android:layout_marginTop="465dp"
+        android:layout_marginLeft="115dp"
         android:text="@string/createCrawl"
 	    android:textSize="12dp"
 	    android:id="@+id/createCrawlButton"/>
     <Button
         android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="400dp"
-        android:layout_marginLeft="110dp"
+	    android:layout_marginTop="465dp"
+        android:layout_marginLeft="230dp"
         android:text="@string/cancel"
 	    android:textSize="12dp"
 	    android:id="@+id/cancelCrawlButton"/>

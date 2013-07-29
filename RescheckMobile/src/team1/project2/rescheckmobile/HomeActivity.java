@@ -54,7 +54,9 @@ public class HomeActivity extends Activity{
 		loadProject_Button = (Button)findViewById(R.id.loadProject);
 		loadProject_Button.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				//Start a new activity here by creating a new intent.
+				//Load an existing project.
+				Intent i = new Intent(HomeActivity.this,LoadProject.class);
+				startActivity(i);
 			}
 		});
 	}
