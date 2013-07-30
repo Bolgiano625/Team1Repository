@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc" >
+  	<!-- Text that store the Site/Permit title -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dp"
+	    android:layout_marginLeft="90dp"
+	    android:textSize="24sp"
+	    android:text="@string/oAButton"/>
+    <!-- Text that store the Site/Permit information -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="50dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/oAInformation"/>
+	<!-- Text that store the Site/Permit Construction Site -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="100dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="16sp"
+	    android:text="@string/name"/>
+	<!-- Text that store the Site/Permit Address -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="220dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/address"/>
+	<!-- TextField that stores the Site/Permit address input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="220dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/addressOwnerAgent"/>
+	<!-- Text that store the Site/Permit city -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="250dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/city"/>
+	<!-- TextField that stores the Site/Permit city input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="250dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/cityOwnerAgent"/>
+	<!-- Text that store the Site/Permit state -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="280dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/state"/>
+	<!-- TextField that stores the Site/Permit state input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="280dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/stateOwnerAgent"/>
+	<!-- Text that store the Site/Permit zipcode -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="310dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/zipCode"/>
+	<!-- TextField that stores the Site/Permit zipcode input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="310dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/zipCodeOwnerAgent"/>
+	<!-- Text that store the Site/Permit Construction Site -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="190dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="16sp"
+	    android:text="@string/contact"/>
+	<!-- Text that store the Site/Permit permit number. -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="130dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/fName"/>
+	<!-- TextField that stores the Site/Permit permit number input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="130dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/fNOwnerAgent"/>
+	<!-- Text that store the Site/Permit permit date. -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="160dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/lName"/>
+	<!-- TextField that stores the Site/Permit permit date input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="160dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/lNOwnerAgent"/>
+	<!-- Text that store the Site/Permit zipcode -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="340dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/phoneNumber"/>
+	<!-- TextField that stores the Site/Permit zipcode input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="340dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/phoneOwnerAgent"/>
+	<!-- Text that store the Site/Permit zipcode -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="370dp"
+	    android:layout_marginLeft="5dp"
+	    android:textSize="12sp"
+	    android:text="@string/email"/>
+	<!-- TextField that stores the Site/Permit zipcode input. -->
+	<EditText
+	    android:layout_width="120dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="370dp"
+	    android:layout_marginLeft="85dp"
+	    android:textSize="12sp"
+	    android:background="#FFFFFF"
+	    android:id="@+id/emailOwnerAgent"/>
+	<!-- Cancel button. -->
+	<Button
+        android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="390dp"
+        android:layout_marginLeft="230dp"
+        android:text="@string/cancel"
+	    android:textSize="12dp"
+	    android:id="@+id/cancelOAButton"/>
+	<!-- Update project details -->
+    <Button
+        android:id="@+id/updateOAButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="390dp"
+        android:text="@string/update"
+        android:textSize="12dp" />
+</RelativeLayout>

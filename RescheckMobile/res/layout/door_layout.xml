@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc" >
+    <!-- TextView Create Door -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/createDoor"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:paddingLeft="0dp"
+        android:textSize="30sp"/>
+    <!-- RadioGroup for door selections. -->
+    <RadioGroup 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp">
+		<!-- RadioButton for Solid Door. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sDO"
+	    	android:textSize="12dp"
+	    	android:id="@+id/solidDoorRadioButton"/>        
+    	<!-- RadioButton for Glass Door. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/gDO"
+	    	android:textSize="12dp"
+	    	android:id="@+id/glassDoorRadioButton"/>
+	</RadioGroup>
+	<!-- Create Door Button -->	    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="125dp"
+        android:textSize="12dp"
+        android:text="@string/createDoor"
+        android:id="@+id/createDoorButton"/>
+    <!-- Cancel Button -->	    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="230dp"
+        android:textSize="12dp"
+        android:text="@string/cancel"
+        android:id="@+id/cancelDoorButton"/>
+</RelativeLayout>

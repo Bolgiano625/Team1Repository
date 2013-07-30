@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".FloorActivity" >
+
+    <EditText
+        android:id="@+id/sOGHEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0.0ft"
+        android:textSize="10sp" 
+        android:layout_marginTop="305dp"
+        android:layout_marginLeft="275dp"/>
+    
+    <EditText
+        android:id="@+id/sOGUEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0.0ft"
+        android:textSize="10sp" 
+        android:layout_marginTop="335dp"
+        android:layout_marginLeft="275dp"/>
+    
+    <!-- TextView for Floor View -->
+    <!-- Create the Radio Group for this window -->
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginBottom="45dp"
+        android:layout_marginRight="60dp"
+         >
+
+        <!-- Radio button for the All Wood Truss or Joist -->
+
+        <RadioButton
+            android:id="@+id/AWoodTrussButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AWoodTruss"
+            android:textSize="10dp" />
+
+        <!-- Spinner for the All Wood Truss or Joist -->
+
+        <Spinner
+            android:id="@+id/AWoodTrussSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/AWoodTrussArray"
+            android:textSize="10dp" />
+
+        <!-- Radio button for the Steel Frame 16 -->
+
+        <RadioButton
+            android:id="@+id/SteelFrame16button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SteelFrame16"
+            android:textSize="10dp" />
+        
+        <!-- Spinner for the Steel Frame 16 -->
+        <Spinner
+            android:id="@+id/Steel16Spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/Steel16Spinner"
+            android:textSize="10dp" />
+
+        <!-- Radio button for the Steel Frame 32 -->
+
+        <RadioButton
+            android:id="@+id/SteelFrame32button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SteelFrame32"
+            android:textSize="10dp" />
+		
+        <!-- Spinner for Steel Frame 32 -->
+        <Spinner
+            android:id="@+id/SteelFrame32Spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/Steel32Spinner"
+            android:textSize="10dp" />
+        <!-- Radio button for the Slab on Grade button -->
+
+        <RadioButton
+            android:id="@+id/SIPanelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SIPanels"
+            android:textSize="10dp" />
+                
+        <!-- Radio button for the Slab on Grade Unheated -->
+
+        <RadioButton
+            android:id="@+id/SOGHeatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SOGHeated"
+            android:textSize="10dp" />
+        
+        <RadioButton
+            android:id="@+id/SOGUHeatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SOGUnHeated"
+            android:textSize="10dp" />
+
+			
+        <!-- Radio button for the Other button -->
+
+        <RadioButton
+            android:id="@+id/Other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Other"
+            android:textSize="10dp" />
+        
+        <!-- Spinner for Structual Insulated Panels spinner -->
+        <Spinner
+            android:id="@+id/SIPPanelSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/SIPPanelSpinner"
+            android:textSize="10dp" />
+        <!-- Spinner for Other spinner -->
+        <Spinner
+            android:id="@+id/otherFloorSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/SIPPanelSpinner"
+            android:textSize="10dp" />
+    </RadioGroup>
+
+    <!-- Overall view -->
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/createFloor"
+        android:textSize="30sp" />
+	
+    <!-- Button to cancel -->
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/Cancel"
+        android:id="@+id/floorCancelButton" />
+	
+    <!-- Button to create a new floor -->
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/createFloor"
+        android:id="@+id/createFloorButton" />
+
+</RelativeLayout>

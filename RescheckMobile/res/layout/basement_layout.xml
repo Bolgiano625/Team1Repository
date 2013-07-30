@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc" >
+    <!-- Image displaying Basement picture. -->
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="175dp"
+        android:layout_marginRight="175dp"
+        android:src="@raw/crawl"
+        android:id="@+id/Basement"/>
+	<!-- TextView Wall Height(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wallHeight"
+        android:layout_marginTop="300dp"
+        android:paddingLeft="230dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Height(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="315dp"
+	    android:layout_marginLeft="235dp"
+	    android:textSize="12sp"
+	    android:hint="0"
+	    android:inputType="numberDecimal"
+	    android:background="#FFFFFF"
+	    android:id="@+id/wHBasement"/>
+    <!-- TextView Depth Below Grade(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dBG"
+        android:layout_marginTop="340dp"
+        android:paddingLeft="230dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Depth Below Grade(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="355dp"
+	    android:layout_marginLeft="235dp"
+	    android:textSize="12sp"
+	    android:hint="0"
+	    android:inputType="numberDecimal"
+	    android:background="#FFFFFF"
+	    android:id="@+id/dBGBasement"/>
+    <!-- TextView Depth of Insulation(ft) -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dOI"
+        android:layout_marginTop="380dp"
+        android:paddingLeft="230dp"
+        android:textSize="12sp"/>
+    <!-- TextField that stores the Depth of Insulation(ft). -->
+	<EditText
+	    android:layout_width="60dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="395dp"
+	    android:layout_marginLeft="235dp"
+	    android:textSize="12sp"
+	    android:hint="0"
+	    android:inputType="numberDecimal"
+	    android:background="#FFFFFF"
+	    android:id="@+id/dOIBasement"/>
+    <!-- TextView information of Basement selections -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paragraphFirst"
+        android:layout_marginTop="225dp"
+        android:paddingLeft="0dp"
+        android:textSize="12sp"/>
+	<!-- RadioGroup for Basement selections. -->
+    <RadioGroup 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp">
+		<!-- RadioButton for Solid Concrete or Masonry. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sCOM"
+	    	android:textSize="10dp"
+	    	android:id="@+id/sCOMBRadioButton"/>        
+    	<!-- RadioButton for Masonry Block w/ Empty Cells. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/mBWEC"
+	    	android:textSize="10dp"
+	    	android:id="@+id/mBWECBRadioButton"/>
+		<!-- RadioButton for Masonry Block w/ Integral Insulation. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/mBWII"
+	    	android:textSize="10dp"
+	    	android:id="@+id/mBWIIBRadioButton"/>
+		<!-- RadioButton for Wood Frame -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/wF"
+	    	android:textSize="10dp"
+	    	android:id="@+id/wFBRadioButton"/>
+		<!-- RadioButton for Insulated Concreate -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/iCF"
+	    	android:textSize="10dp"
+	    	android:id="@+id/iCFBRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/other"
+	    	android:textSize="10dp"
+	    	android:id="@+id/otherBasementRadioButton"/>
+	</RadioGroup>    
+	<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/createBasement"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="115dp"
+        android:textSize="12dp"
+	    android:id="@+id/createBasementButton"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="230dp"
+        android:textSize="12dp"
+        android:text="@string/cancel"
+	    android:id="@+id/cancelBasementButton"/>
+</RelativeLayout>

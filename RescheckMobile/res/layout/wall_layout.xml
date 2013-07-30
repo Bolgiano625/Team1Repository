@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc" >
+    <!-- TextView Create Wall -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/createWall"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="80dp"
+        android:paddingLeft="0dp"
+        android:textSize="25sp"/>
+    <!-- Create Wall Button -->	    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:layout_marginLeft="125dp"
+        android:textSize="12dp"
+        android:text="@string/createWall"
+        android:id="@+id/createWallButton"/>
+    <!-- Cancel Button -->	    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:layout_marginLeft="230dp"
+        android:textSize="12dp"
+        android:text="@string/cancel"
+        android:id="@+id/cancelWallButton"/>
+	<!-- Spinner for Metal Frame. -->
+    <Spinner
+        android:layout_width="100dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="190dp"
+        android:layout_marginLeft="180dp"
+        android:entries="@array/sCOMWallSpinner"
+        android:id="@+id/sCOMWallSpinner">
+    </Spinner>
+    <!-- Spinner for Metal Frame w/ ThermalBreak. -->
+    <Spinner
+        android:layout_width="100dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="225dp"
+        android:layout_marginLeft="200dp"
+        android:entries="@array/sCOMWallSpinner"
+        android:id="@+id/mBWECWallSpinner">
+    </Spinner>
+    <!-- Spinner for Wood Frame. -->
+    <Spinner
+        android:layout_width="100dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="270dp"
+        android:layout_marginLeft="235dp"
+        android:entries="@array/mBWIIWallSpinner"
+        android:id="@+id/mBWIIWallSpinner">
+    </Spinner>
+    <!-- Spinner for Vinyl Frame. -->
+    <Spinner
+        android:layout_width="150dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="305dp"
+        android:layout_marginLeft="110dp"
+        android:entries="@array/lSWallSpinner"
+        android:id="@+id/lSWallSpinner">
+    </Spinner>
+    <!-- TextView Log Thickness -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lTNLWall"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="200dp"
+        android:textSize="12sp"/>
+	<!-- Spinner for Vinyl Frame. -->
+    <Spinner
+        android:layout_width="50dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="325dp"
+        android:layout_marginLeft="275dp"
+        android:entries="@array/lTNLWallSpinner"
+        android:id="@+id/lTNLWallSpinner">
+    </Spinner>
+	<!-- RadioGroup for skylight selections. -->
+    <RadioGroup 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+		<!-- RadioButton for Metal Frame. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/wF16Wall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/wF16WallRadioButton"/>        
+    	<!-- RadioButton for Metal Frame w/ Thermal Break. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/wF24Wall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/wF24WallRadioButton"/>
+		<!-- RadioButton for Wood Frame. -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sF16Wall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sF16WallRadioButton"/>
+		<!-- RadioButton for Vinyl Frame -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sF24Wall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sF24WallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sCOMWall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sCOMWallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/mBWECWall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/mBWECWallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/mBWIIWall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/mBWIIWallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/lSWall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/lSWallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/sIPWall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/sIPWallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/iCFWall"
+	    	android:textSize="12dp"
+	    	android:id="@+id/iCFWallRadioButton"/>
+		<!-- RadioButton for Other -->
+		<RadioButton 
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/other"
+	    	android:textSize="12dp"
+	    	android:id="@+id/otherWallRadioButton"/>
+	</RadioGroup>
+
+</RelativeLayout>

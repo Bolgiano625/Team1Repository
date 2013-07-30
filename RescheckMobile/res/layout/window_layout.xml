@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00cccc"
+    android:scrollbarAlwaysDrawVerticalTrack="true" >
+ 
+    <TextView
+        android:id="@+id/wTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/wNewWindow"
+        android:textSize="30sp" />
+ 
+    <RadioGroup
+        android:id="@+id/wGlassRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/wGlassTextView" >
+ 
+        <RadioButton
+            android:id="@+id/singlePaneRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wSPane"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wDPaneRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wDPane"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wDPaneWLERadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wDPaneWLE"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wTPaneRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wTPane"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wTPaneWLERadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wTPaneWLE"
+            android:textSize="12sp" />
+    </RadioGroup>
+ 
+    <TextView
+        android:id="@+id/wFrameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wTextView"
+        android:layout_centerHorizontal="true"
+        android:text="@string/wFType"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+ 
+    <RadioGroup
+        android:id="@+id/wFRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/wFrameTextView" >
+ 
+        <RadioButton
+            android:id="@+id/wMFrameRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wMFrame"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wMFrameWTBRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wMFrameWTB"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wWFrameRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wWFrame"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wVFrameRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wVFrame"
+            android:textSize="12sp" />
+ 
+        <RadioButton
+            android:id="@+id/wOFrameRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wOther"
+            android:textSize="12sp" />
+    </RadioGroup>
+ 
+    <TextView
+        android:id="@+id/wGlassTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wFRadioGroup"
+        android:layout_centerHorizontal="true"
+        android:text="@string/wGType"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+ 
+    <Button
+        android:id="@+id/wCreateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        android:layout_marginLeft="175dp"
+        android:textSize="12dp"
+        android:text="@string/wCreate" />
+ 
+    <Button
+        android:id="@+id/wCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        android:layout_marginLeft="280dp"
+        android:textSize="12dp"
+        android:text="@string/wCancel" />
+ 
+</RelativeLayout>
