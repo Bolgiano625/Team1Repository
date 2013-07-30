@@ -37,7 +37,7 @@ public class ProjectActivity extends Activity{
 	//Instance of the Envelope tab.
 	private static EnvelopeActivity envelopeTab;
 	//TextField for the title of the project.
-	private static EditText title_EditText;
+	public static EditText title_EditText;
 	//Button that will save the project.
 	private Button save_Button;
 	//TextView that displays Code/Location.
@@ -75,37 +75,56 @@ public class ProjectActivity extends Activity{
 	//TextView that displays ft2.
 	private TextView ft2_TextView;
 	//TextField that stores Conditioned Floor Area.
-	private EditText conditionedFloorArea_EditText;
+	public static EditText conditionedFloorArea_EditText;
 	//Spinner that stores code values.
-	private Spinner code_Spinner;
+	public static Spinner code_Spinner;
 	//Spinner that stores state values.
-	private Spinner state_Spinner;
+	public static Spinner state_Spinner;
 	//Spinner that stores city values.
-	private Spinner city_Spinner;
+	public static Spinner city_Spinner;
 	//Spinner that stores county values.
-	private Spinner county_Spinner;
+	public static Spinner county_Spinner;
 	//RadioButton for city.
-	private RadioButton city_RadioButton;
+	public static RadioButton city_RadioButton;
 	//RadioButton for county.
-	private RadioButton county_RadioButton;
+	public static RadioButton county_RadioButton;
 	//RadioButton for new construction.
-	private RadioButton newConstruction_RadioButton;
+	public static RadioButton newConstruction_RadioButton;
 	//RadioButton for addition.
-	private RadioButton addition_RadioButton;
+	public static RadioButton addition_RadioButton;
 	//RadioButton for alteration.
-	private RadioButton alteration_RadioButton;
+	public static RadioButton alteration_RadioButton;
 	//RadioButton for UA Trade-OFF.
-	private RadioButton uATradeOff_RadioButton;
+	public static RadioButton uATradeOff_RadioButton;
 	//RadioButton for performance alteration.
-	private RadioButton performanceAlternative_RadioButton;
+	public static RadioButton performanceAlternative_RadioButton;
 	//RadioButton for 1 - and 2 - Family.
-	private RadioButton oneAndTwoFamily_RadioButton;
+	public static RadioButton oneAndTwoFamily_RadioButton;
 	//RadioButton for Multifamily.
-	private RadioButton multiFamily_RadioButton;
+	public static RadioButton multiFamily_RadioButton;
+	//RadioButton for city.
+		public static boolean city_boolean = false;
+		//RadioButton for county.
+		public static boolean county_boolean = false;
+		//RadioButton for new construction.
+		public static boolean newConstruction_boolean = false;
+		//RadioButton for addition.
+		public static boolean addition_boolean = false;
+		//RadioButton for alteration.
+		public static boolean alteration_boolean = false;
+		//RadioButton for UA Trade-OFF.
+		public static boolean uATradeOff_boolean = false;
+		//RadioButton for performance alteration.
+		public static boolean performanceAlternative_boolean = false;
+		//RadioButton for 1 - and 2 - Family.
+		public static boolean oneAndTwoFamily_boolean = false;
+		//RadioButton for Multifamily.
+		public static boolean multiFamily_boolean = false;
 	//Button for project details.
 	private Button projectDetails_Button;
 	//TextField for notes.
-	private EditText notes_EditText;
+	public static EditText notes_EditText;
+	private String notes_String = " ";
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -202,75 +221,88 @@ public class ProjectActivity extends Activity{
 	 */
 	private void initializeRadioButtons(){
 		//City radio button.
-		city_RadioButton = new RadioButton(this);
+		city_RadioButton = (RadioButton)findViewById(R.id.cityRadioButton);
 		city_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				city_boolean = true;
+				county_boolean = false;
+				System.out.println("RADIOBUTTON WAS CLICKED!!!!!!");
 			}
 		});
 		//County radio button.
-		county_RadioButton = new RadioButton(this);
+		county_RadioButton = (RadioButton)findViewById(R.id.countyRadioButton);
 		county_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				city_boolean = false;
+				county_boolean = true;				
 			}		
 		});
 		//New construction radio button.
-		newConstruction_RadioButton = new RadioButton(this);
+		newConstruction_RadioButton = (RadioButton)findViewById(R.id.newConstructionRadioButton);
 		newConstruction_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				newConstruction_boolean = true;
+				addition_boolean = false;
+				alteration_boolean = false;
 			}				
 		});
 		//Addition radio button.
-		addition_RadioButton = new RadioButton(this);
+		addition_RadioButton = (RadioButton)findViewById(R.id.additionRadioButton);
 		addition_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				newConstruction_boolean = false;
+				addition_boolean = true;
+				alteration_boolean = false;				
 			}					
 		});
 		//Alteration radio button.
-		alteration_RadioButton = new RadioButton(this);
+		alteration_RadioButton = (RadioButton)findViewById(R.id.alterationRadioButton);
 		alteration_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				newConstruction_boolean = false;
+				addition_boolean = false;
+				alteration_boolean = true;				
 			}					
 		});
 		//UA Trade-Off radio button.
-		uATradeOff_RadioButton = new RadioButton(this);
+		uATradeOff_RadioButton = (RadioButton)findViewById(R.id.uATradeOffRadioButton);
 		uATradeOff_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				uATradeOff_boolean = true;
+				performanceAlternative_boolean = false;
 			}					
 		});
 		//Performance alternative radio button.
-		performanceAlternative_RadioButton = new RadioButton(this);
+		performanceAlternative_RadioButton = (RadioButton)findViewById(R.id.performanceAlterationRadioButton);
 		performanceAlternative_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				uATradeOff_boolean = false;
+				performanceAlternative_boolean = true;				
 			}					
 		});
 		//1 and 2 family radio button.
-		oneAndTwoFamily_RadioButton = new RadioButton(this);
+		oneAndTwoFamily_RadioButton = (RadioButton)findViewById(R.id.oneAndTwoFamilyRadioButton);
 		oneAndTwoFamily_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				oneAndTwoFamily_boolean = true;
+				multiFamily_boolean = false;				
 			}					
 		});
 		//Multifamily radio button.
-		multiFamily_RadioButton = new RadioButton(this);
+		multiFamily_RadioButton = (RadioButton)findViewById(R.id.multiFamilyRadioButton);
 		multiFamily_RadioButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				;				
+				oneAndTwoFamily_boolean = false;
+				multiFamily_boolean = true;				
 			}					
 		});
 		
@@ -309,54 +341,66 @@ public class ProjectActivity extends Activity{
 					fW_FileWriter.write(state_Spinner.getSelectedItem().toString() + "!-!");
 					fW_FileWriter.write(city_Spinner.getSelectedItem().toString() + "!-!");
 					fW_FileWriter.write(county_Spinner.getSelectedItem().toString() + "!-!");
-					fW_FileWriter.write(city_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(county_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(newConstruction_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(addition_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(alteration_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(uATradeOff_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(performanceAlternative_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(oneAndTwoFamily_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(multiFamily_RadioButton.isChecked() + "!-!");
-					fW_FileWriter.write(conditionedFloorArea_EditText.getText().toString() + "!-!");
-					fW_FileWriter.write(notes_EditText.getText().toString() + "!-!");
+					fW_FileWriter.write(city_boolean + "!-!");
+					fW_FileWriter.write(county_boolean + "!-!");
+					fW_FileWriter.write(newConstruction_boolean + "!-!");
+					fW_FileWriter.write(addition_boolean + "!-!");
+					fW_FileWriter.write(alteration_boolean + "!-!");
+					fW_FileWriter.write(uATradeOff_boolean + "!-!");
+					fW_FileWriter.write(performanceAlternative_boolean + "!-!");
+					fW_FileWriter.write(oneAndTwoFamily_boolean + "!-!");
+					fW_FileWriter.write(multiFamily_boolean + "!-!");
+					if(conditionedFloorArea_EditText.getText().toString().equalsIgnoreCase("")){
+						fW_FileWriter.write("0" + "!-!");
+					}
+					else{
+						fW_FileWriter.write(conditionedFloorArea_EditText.getText().toString() + "!-!");
+					}
+					//if(notes_EditText.getText().toString().equalsIgnoreCase("")){
+						//fW_FileWriter.write(" " + "!-!");
+					//}
+					//else{
+						fW_FileWriter.write(notes_String + "!-!");
+					//}
 					System.out.println("ROWS:" + EnvelopeActivity.rowCounter_int);
-					for(int i = 0; i < EnvelopeActivity.rowCounter_int-1; i++){
-						TableRow row = EnvelopeActivity.rows_LinkedList.get(i);
-						ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
-						TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
-						System.out.println("Children of row:" + temp_TableRow.getChildCount());
-						LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-						TableRow row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
-						TextView index_TextView = (TextView)row_TableRow.findViewById(R.id.indexColumn);
-						fW_FileWriter.write(index_TextView.getText() + "!-!");
-						final EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
-						fW_FileWriter.write(tempComp_EditText.getText().toString() + "!-!");
-						final TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
-						fW_FileWriter.write(tempAssembly_EditText.getText() + "!-!");
-						final EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
-						fW_FileWriter.write(tempGArea_EditText.getText() + "!-!");
-						final EditText tempCIRV_EditText = (EditText)temp_TableRow.getChildAt(4);
-						fW_FileWriter.write(tempCIRV_EditText.getText() + "!-!");
-						final EditText tempConIRV_EditText = (EditText)temp_TableRow.getChildAt(5);
-						fW_FileWriter.write(tempConIRV_EditText.getText() + "!-!");
-						EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
-						fW_FileWriter.write(tempUF_EditText.getText() + "!-!");
-						TextView tempSHGC_EditText = (TextView)temp_TableRow.getChildAt(7);
-						fW_FileWriter.write(tempSHGC_EditText.getText() + "!-!");
-						final EditText tempDOI_EditText = (EditText)temp_TableRow.getChildAt(8);
-						fW_FileWriter.write(tempDOI_EditText.getText() + "!-!");
-						final EditText tempWH_EditText = (EditText)temp_TableRow.getChildAt(9);
-						fW_FileWriter.write(tempWH_EditText.getText() + "!-!");
-						final EditText tempDBG_EditText = (EditText)temp_TableRow.getChildAt(10);
-						fW_FileWriter.write(tempDBG_EditText.getText() + "!-!");
-						final EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
-						fW_FileWriter.write(tempDBIG_EditText.getText() + "!-!");
+					if(EnvelopeActivity.rowCounter_int-1 > 0){
+						for(int i = 0; i < EnvelopeActivity.rowCounter_int-1; i++){
+							TableRow row = EnvelopeActivity.rows_LinkedList.get(i);
+							ScrollView temp_ScrollView = (ScrollView)row.getChildAt(0);
+							TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+							System.out.println("Children of row:" + temp_TableRow.getChildCount());
+							LayoutInflater balloon = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+							TableRow row_TableRow = (TableRow)balloon.inflate(R.layout.row_layout, null);
+							TextView index_TextView = (TextView)row_TableRow.findViewById(R.id.indexColumn);
+							fW_FileWriter.write(index_TextView.getText() + "!-!");
+							final EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
+							fW_FileWriter.write(tempComp_EditText.getText().toString() + "!-!");
+							final TextView tempAssembly_EditText = (TextView)temp_TableRow.getChildAt(2);
+							fW_FileWriter.write(tempAssembly_EditText.getText() + "!-!");
+							final EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
+							fW_FileWriter.write(tempGArea_EditText.getText() + "!-!");
+							final EditText tempCIRV_EditText = (EditText)temp_TableRow.getChildAt(4);
+							fW_FileWriter.write(tempCIRV_EditText.getText() + "!-!");
+							final EditText tempConIRV_EditText = (EditText)temp_TableRow.getChildAt(5);
+							fW_FileWriter.write(tempConIRV_EditText.getText() + "!-!");
+							EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
+							fW_FileWriter.write(tempUF_EditText.getText() + "!-!");
+							TextView tempSHGC_EditText = (TextView)temp_TableRow.getChildAt(7);
+							fW_FileWriter.write(tempSHGC_EditText.getText() + "!-!");
+							final EditText tempDOI_EditText = (EditText)temp_TableRow.getChildAt(8);
+							fW_FileWriter.write(tempDOI_EditText.getText() + "!-!");
+							final EditText tempWH_EditText = (EditText)temp_TableRow.getChildAt(9);
+							fW_FileWriter.write(tempWH_EditText.getText() + "!-!");
+							final EditText tempDBG_EditText = (EditText)temp_TableRow.getChildAt(10);
+							fW_FileWriter.write(tempDBG_EditText.getText() + "!-!");
+							final EditText tempDBIG_EditText = (EditText)temp_TableRow.getChildAt(11);
+							fW_FileWriter.write(tempDBIG_EditText.getText() + "!-!");
+						}
 					}
 					fW_FileWriter.flush();
 					fW_FileWriter.close();
 					System.out.println("SAVING COMPLETE!");
-					Toast.makeText(ProjectActivity.this, "" + " has been saved.", Toast.LENGTH_LONG).show();
+					Toast.makeText(ProjectActivity.this, title_EditText.getText().toString() + " has been saved.", Toast.LENGTH_LONG).show();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -376,12 +420,6 @@ public class ProjectActivity extends Activity{
 		});
 	}
 	
-	@Override
-	public void onSaveInstanceState(Bundle savedInstanceState) {
-	  super.onSaveInstanceState(savedInstanceState);
-	
-	}
-	
 	/**
 	 * updatesResultsFromAddingComponentsToList
 	 * 
@@ -391,7 +429,8 @@ public class ProjectActivity extends Activity{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
 			if(resultCode == RESULT_OK){
 				//Project Details String.
-				String temp_String = "Site/Permit:\n\nConstruction Site\n-Address:" + data.getStringExtra("1v1") + "\n-City:" + data.getStringExtra("1v2") + "\n-State:" + data.getStringExtra("1v3") + "\n-Zip Code:" + data.getStringExtra("1v4") + "\nPermit:\n-Permit #:" + data.getStringExtra("1v5") + "\n-Permit Date:" + data.getStringExtra("1v6") + "\n\nOwner/Agent:\n\nName\n-First Name:" + data.getStringExtra("1v13") + "\n-Last Name:"  + data.getStringExtra("1v14") + "\nContact Information\n-Address:" + data.getStringExtra("1v7") + "\n-City:" + data.getStringExtra("1v8") + "\n-State:" + data.getStringExtra("1v9") + "\n-Zip Code:" + data.getStringExtra("1v10") + "\n-Phone #:" + data.getStringExtra("1v11") + "\n-E-mail:" + data.getStringExtra("1v12") + "\n\nDesigner/Contractor:\n\nName\n-First Name:" + data.getStringExtra("1v21") + "\n-Last Name:"  + data.getStringExtra("1v22") + "\nContact Information\n-Address:" + data.getStringExtra("1v15") + "\n-City:" + data.getStringExtra("1v16") + "\n-State:" + data.getStringExtra("1v17") + "\n-Zip Code:" + data.getStringExtra("1v18") + "\n-Phone #:" + data.getStringExtra("1v19") + "\n-E-mail:" + data.getStringExtra("1v20");
+				notes_String = "Site/Permit:!Construction Site!-Address:" + data.getStringExtra("v1") + "!-City:" + data.getStringExtra("v2") + "!-State:" + data.getStringExtra("v3") + "!-Zip Code:" + data.getStringExtra("v4") + "!Permit:!-Permit #:" + data.getStringExtra("v5") + "!-Permit Date:" + data.getStringExtra("v6") + "!!Owner/Agent:!!Name!-First Name:" + data.getStringExtra("v13") + "!-Last Name:"  + data.getStringExtra("v14") + "!Contact Information!-Address:" + data.getStringExtra("v7") + "!-City:" + data.getStringExtra("v8") + "!-State:" + data.getStringExtra("v9") + "!-Zip Code:" + data.getStringExtra("v10") + "!-Phone #:" + data.getStringExtra("v11") + "!-E-mail:" + data.getStringExtra("v12") + "!!Designer/Contractor:!Name!-First Name:" + data.getStringExtra("v21") + "!-Last Name:"  + data.getStringExtra("v22") + "!Contact Information!-Address:" + data.getStringExtra("v15") + "!-City:" + data.getStringExtra("v16") + "!-State:" + data.getStringExtra("v17") + "!-Zip Code:" + data.getStringExtra("v18") + "!-Phone #:" + data.getStringExtra("v19") + "!-E-mail:" + data.getStringExtra("v20");
+				String temp_String = "Site/Permit:\n\nConstruction Site\n-Address:" + data.getStringExtra("v1") + "\n-City:" + data.getStringExtra("v2") + "\n-State:" + data.getStringExtra("v3") + "\n-Zip Code:" + data.getStringExtra("v4") + "\nPermit:\n-Permit #:" + data.getStringExtra("v5") + "\n-Permit Date:" + data.getStringExtra("v6") + "\n\nOwner/Agent:\n\nName\n-First Name:" + data.getStringExtra("v13") + "\n-Last Name:"  + data.getStringExtra("v14") + "\nContact Information\n-Address:" + data.getStringExtra("v7") + "\n-City:" + data.getStringExtra("v8") + "\n-State:" + data.getStringExtra("v9") + "\n-Zip Code:" + data.getStringExtra("v10") + "\n-Phone #:" + data.getStringExtra("v11") + "\n-E-mail:" + data.getStringExtra("v12") + "\n\nDesigner/Contractor:\n\nName\n-First Name:" + data.getStringExtra("v21") + "\n-Last Name:"  + data.getStringExtra("v22") + "\nContact Information\n-Address:" + data.getStringExtra("v15") + "\n-City:" + data.getStringExtra("v16") + "\n-State:" + data.getStringExtra("v17") + "\n-Zip Code:" + data.getStringExtra("v18") + "\n-Phone #:" + data.getStringExtra("v19") + "\n-E-mail:" + data.getStringExtra("v20");
 				notes_EditText.setText(temp_String);
 			}
 	}

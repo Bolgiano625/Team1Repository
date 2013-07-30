@@ -3,6 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
     android:background="#00cccc">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="425dp"
+       	android:paddingLeft="5dp"
+        android:textSize="10sp"
+        android:text="YourUA:"
+        android:id="@+id/UAMAX"/>
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="425dp"
+       	android:layout_marginLeft="40dp"
+        android:editable="false"
+        android:textSize="10sp"
+        android:id="@+id/UAMAXEDIT"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="425dp"
+       	android:paddingLeft="100dp"
+        android:textSize="10sp"
+        android:text="UA-MIN:"
+        android:id="@+id/UAMIN"/>
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="425dp"
+       	android:layout_marginLeft="135dp"
+        android:textSize="10sp"
+        android:editable="false"
+        android:id="@+id/UAMINEDIT"/>
     <!-- Text displaying Row:. -->
     <TextView
         android:layout_width="wrap_content"
@@ -161,10 +193,11 @@
         android:text="@string/checkCompliance"
         android:textSize="12sp"
         android:id="@+id/checkComplianceButton"/>
+    
     <!-- Vertical scrollable layout to hold parameters for a project -->
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="250dp"
         android:layout_marginTop="165dp"
         android:scrollbars="vertical"
         android:background="#FFFFFF"

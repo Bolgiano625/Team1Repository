@@ -31,6 +31,8 @@ import android.widget.TextView;
  *
  */
 public class EnvelopeActivity extends Activity{
+	private EditText uAMin;
+	private EditText uAMax;
 	//Boolean if true capture instance of type.
 	public static boolean captureInstaceOfEnvelopeTab = false;
 	//Static instance of this class.
@@ -64,7 +66,7 @@ public class EnvelopeActivity extends Activity{
 	//Check Compliance button.
 	private Button checkCompliance_Button;
 	//TableLayout.
-	private TableLayout table_TableLayout;
+	public static TableLayout table_TableLayout;
 	//Row View.
 	private TableRow row_TableRow;
 	//Linked list of rows.
@@ -76,7 +78,7 @@ public class EnvelopeActivity extends Activity{
 	//Edit button boolean.
 	private boolean edit_boolean = false;
 	//Delete button boolean.
-	private boolean delete_boolean = false;
+	public static boolean delete_boolean = false;
 	//Ceiling result constant.
 	private static final int CEILING_RESULT = 0;
 	//Skylight result constant.
@@ -358,39 +360,50 @@ public class EnvelopeActivity extends Activity{
 				startActivityForResult(i,CRAWL_RESULT);									
 			}
 		});
+		
 		//Check Compliance button and listener for it.
 		checkCompliance_Button = (Button)findViewById(R.id.checkComplianceButton);
 		checkCompliance_Button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				uAMin = (EditText)findViewById(R.id.UAMINEDIT);
+				uAMax = (EditText)findViewById(R.id.UAMAXEDIT);
+					double[] gAreas = new double[rows_LinkedList.size()];
+					double[] proposedUFactors = new double[rows_LinkedList.size()];
+					double[] codeUFactors = new double[rows_LinkedList.size()];
 					if(rows_LinkedList.size() > 0){
 						for(int i = 0; i < rows_LinkedList.size(); i++){
 							//Calculations intent.
 							Intent c = new Intent();
-							EditText tempComp_EditText = (EditText)rows_LinkedList.get(i).getChildAt(1);
+							ScrollView temp_ScrollView = (ScrollView)rows_LinkedList.get(i).getChildAt(0);
+							TableRow temp_TableRow = (TableRow)temp_ScrollView.getChildAt(0);
+							EditText tempComp_EditText = (EditText)temp_TableRow.getChildAt(1);
 							//if(tempComp_EditText.getText().equals("Ceiling")){
-								TextView tempAssembly_EditText = (TextView)rows_LinkedList.get(i).getChildAt(2);
-								EditText tempGArea_EditText = (EditText)rows_LinkedList.get(i).getChildAt(3);
-								EditText tempCIRV_EditText = (EditText)rows_LinkedList.get(i).getChildAt(4);
-								EditText tempConIRV_EditText = (EditText)rows_LinkedList.get(i).getChildAt(5);
-								EditText tempUF_EditText = (EditText)rows_LinkedList.get(i).getChildAt(6);
-								TextView tempSHGC_EditText = (TextView)rows_LinkedList.get(i).getChildAt(7);
+								//TextView tempAssembly_EditText = (TextView)rows_LinkedList.get(i).getChildAt(2);
+								EditText tempGArea_EditText = (EditText)temp_TableRow.getChildAt(3);
+									gAreas[i] = Double.parseDouble(tempGArea_EditText.getText().toString());
+								
+								//EditText tempCIRV_EditText = (EditText)rows_LinkedList.get(i).getChildAt(4);
+								//EditText tempConIRV_EditText = (EditText)rows_LinkedList.get(i).getChildAt(5);
+								EditText tempUF_EditText = (EditText)temp_TableRow.getChildAt(6);
+								proposedUFactors[i] = Double.parseDouble(tempUF_EditText.getText().toString());
+								/*TextView tempSHGC_EditText = (TextView)rows_LinkedList.get(i).getChildAt(7);
 								EditText tempDOI_EditText = (EditText)rows_LinkedList.get(i).getChildAt(8);
 								EditText tempWH_EditText = (EditText)rows_LinkedList.get(i).getChildAt(9);
 								EditText tempDBG_EditText = (EditText)rows_LinkedList.get(i).getChildAt(10);
 								EditText tempDBIG_EditText = (EditText)rows_LinkedList.get(i).getChildAt(11);
-								c.putExtra("1v1", tempComp_EditText.getText());
-								c.putExtra("1v2", tempAssembly_EditText.getText());
-								c.putExtra("1v3", tempGArea_EditText.getText());
-								c.putExtra("1v4", tempCIRV_EditText.getText());
-								c.putExtra("1v5", tempConIRV_EditText.getText());
-								c.putExtra("1v6", tempUF_EditText.getText());
-								c.putExtra("1v7", tempSHGC_EditText.getText());
-								c.putExtra("1v8", tempDOI_EditText.getText());
-								c.putExtra("1v9", tempWH_EditText.getText());
-								c.putExtra("1v10", tempDBG_EditText.getText());
-								c.putExtra("1v11", tempDBIG_EditText.getText());
-								startActivityForResult(c,CALCULATE_RESULT);
+								c.putExtra("a", tempComp_EditText.getText().toString());
+				            	c.putExtra("b", tempAssembly_EditText.getText().toString());
+				            	c.putExtra("c", tempGArea_EditText.getText().toString());
+				            	c.putExtra("d", "" + (rowCounter_int-1));
+				            	c.putExtra("e", tempCIRV_EditText.getText().toString());
+								c.putExtra("f", tempConIRV_EditText.getText().toString());
+								c.putExtra("g", tempDOI_EditText.getText().toString());
+								c.putExtra("h", tempWH_EditText.getText().toString());
+								c.putExtra("i", tempDBG_EditText.getText().toString());*/
+								//c.putExtra("j", tempDBIG_EditText.getText().toString());
+								//c.putExtra("k", "true");
+								//startActivityForResult(c,CALCULATE_RESULT);
 							/*}
 							else if(tempComp_EditText.getText().equals("Skylight")){
 								
@@ -415,9 +428,84 @@ public class EnvelopeActivity extends Activity{
 							}*/
 						}
 					}
+					/*Intent c = new Intent();
+					EditText tempComp_EditText = (EditText)rows_LinkedList.get(i).getChildAt(1);
+					//if(tempComp_EditText.getText().equals("Ceiling")){
+						TextView tempAssembly_EditText = (TextView)rows_LinkedList.get(i).getChildAt(2);
+						EditText tempGArea_EditText = (EditText)rows_LinkedList.get(i).getChildAt(3);
+						EditText tempCIRV_EditText = (EditText)rows_LinkedList.get(i).getChildAt(4);
+						EditText tempConIRV_EditText = (EditText)rows_LinkedList.get(i).getChildAt(5);
+						EditText tempUF_EditText = (EditText)rows_LinkedList.get(i).getChildAt(6);
+						TextView tempSHGC_EditText = (TextView)rows_LinkedList.get(i).getChildAt(7);
+						EditText tempDOI_EditText = (EditText)rows_LinkedList.get(i).getChildAt(8);
+						EditText tempWH_EditText = (EditText)rows_LinkedList.get(i).getChildAt(9);
+						EditText tempDBG_EditText = (EditText)rows_LinkedList.get(i).getChildAt(10);
+						EditText tempDBIG_EditText = (EditText)rows_LinkedList.get(i).getChildAt(11);
+						c.putExtra("a", "");
+		            	c.putExtra("b", "");
+		            	c.putExtra("c", "");
+		            	c.putExtra("d", "");
+		            	c.putExtra("e", "");
+						c.putExtra("f", "");
+						c.putExtra("g", "");
+						c.putExtra("h", "");
+						c.putExtra("i", "");
+						c.putExtra("j", "");
+						c.putExtra("k", "true");
+						startActivityForResult(c,CALCULATE_RESULT);*/
+					double cPBUA = calculateProposedBuildingUA(proposedUFactors, gAreas);
+					double cCBUA = calculateCodeBuildingUA(codeUFactors, gAreas);
+					uAMin.setText(String.valueOf(cCBUA));
+					uAMax.setText(String.valueOf(cPBUA));
 			}
 		});
 	}
+	
+	//*********************************************************************
+		//*****************Proposed Building UA Calc******************************
+		//*********************************************************************
+		public double calculateProposedBuildingUA(double[] proposedUFactors, double[] grossArea)
+		{
+			double proposedUA = 0.0;
+		 
+			for (int i = 0; i < proposedUFactors.length; i++)
+			{
+				proposedUA += proposedUFactors[i] * grossArea[i];
+			}
+		 
+			return proposedUA;
+		}
+		 
+		//*********************************************************************
+		//*****************Code Building UA Calc******************************
+		//*********************************************************************
+		public double calculateCodeBuildingUA(double[] codeUFactors, double[] grossArea)
+		{
+			double codeUA = 0.0;
+		 
+			for (int i = 0; i < codeUFactors.length; i++)
+			{
+				codeUA += codeUFactors[i] * grossArea[i];
+			}
+		 
+			return codeUA;
+		}
+		 
+		//*********************************************************************
+		//*****************Compliance Calc******************************
+		//*********************************************************************
+		public boolean checkCompliance(double proposedUA, double codeUA)
+		{
+			boolean compliant = false;
+		 
+			if(proposedUA <= codeUA)
+			{
+				compliant = true;
+				return compliant;
+			}
+			else
+				return compliant;
+		}
 	
 	/**
 	 * updatesResultsFromAddingComponentsToList
@@ -553,7 +641,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 	    });
@@ -573,7 +662,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 	    });
@@ -593,7 +683,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
 	    });
@@ -613,7 +704,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
 	    });
@@ -633,7 +725,8 @@ public class EnvelopeActivity extends Activity{
 						c.putExtra("h", tempWH_EditText.getText().toString());
 						c.putExtra("i", tempDBG_EditText.getText().toString());
 						c.putExtra("j", tempDBIG_EditText.getText().toString());
-		            	startActivityForResult(c,CALCULATE_RESULT);
+						
+						startActivityForResult(c,CALCULATE_RESULT);
 	               }
 		       }
 	    });
@@ -653,7 +746,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 	    });
@@ -673,7 +767,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 		});
@@ -745,7 +840,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 	    });
@@ -765,7 +861,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 	    });
@@ -785,7 +882,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
 	    });
@@ -805,7 +903,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 		           }
 	        }
 	    });
@@ -825,7 +924,8 @@ public class EnvelopeActivity extends Activity{
 						c.putExtra("h", tempWH_EditText.getText().toString());
 						c.putExtra("i", tempDBG_EditText.getText().toString());
 						c.putExtra("j", tempDBIG_EditText.getText().toString());
-		            	startActivityForResult(c,CALCULATE_RESULT);
+						
+						startActivityForResult(c,CALCULATE_RESULT);
 	               }
 		       }
 	    });
@@ -845,7 +945,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 	    });
@@ -865,7 +966,8 @@ public class EnvelopeActivity extends Activity{
 					c.putExtra("h", tempWH_EditText.getText().toString());
 					c.putExtra("i", tempDBG_EditText.getText().toString());
 					c.putExtra("j", tempDBIG_EditText.getText().toString());
-	            	startActivityForResult(c,CALCULATE_RESULT);
+					
+					startActivityForResult(c,CALCULATE_RESULT);
 	            }
 	        }
 		});
